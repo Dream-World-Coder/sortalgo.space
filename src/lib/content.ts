@@ -20,7 +20,7 @@ export function getChapterContent(slug?: string | string[]): string {
   }
 }
 
-// Helper to get all available chapters
+// get all available chapters
 export function getAllChapterSlugs(): string[] {
   const chaptersDir = path.join(contentDirectory, "chapters");
   const files = fs.readdirSync(chaptersDir);

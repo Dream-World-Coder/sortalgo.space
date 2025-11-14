@@ -10,7 +10,7 @@ export function Sidebar() {
   return (
     <aside className="w-72 bg-light-green">
       <nav>
-        {chapters.sections.map((section) => (
+        {chapters.map((section) => (
           <div key={section.title}>
             <h3>{section.title}</h3>
             {section.chapters.map((chapter) => {
@@ -23,7 +23,7 @@ export function Sidebar() {
                   href={href}
                   className={isActive ? "active" : ""}
                 >
-                  {chapter.number}. {chapter.title}
+                  {chapter.title}
                 </Link>
               );
             })}

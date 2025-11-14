@@ -1,7 +1,6 @@
 export interface Chapter {
   slug: string;
   title: string;
-  number: number;
 }
 
 export interface Section {
@@ -9,41 +8,47 @@ export interface Section {
   chapters: Chapter[];
 }
 
-export interface ChaptersData {
-  sections: Section[];
-}
-
-export const chapters: ChaptersData = {
-  sections: [
-    {
-      title: "Foundations",
-      chapters: [
-        { slug: "introduction", title: "Introduction to Sorting", number: 1 },
-        {
-          slug: "complexity-analysis",
-          title: "Complexity Analysis",
-          number: 2,
-        },
-      ],
-    },
-    {
-      title: "Basic Sorts",
-      chapters: [
-        { slug: "bubble-sort", title: "Bubble Sort", number: 3 },
-        { slug: "selection-sort", title: "Selection Sort", number: 4 },
-        { slug: "insertion-sort", title: "Insertion Sort", number: 5 },
-      ],
-    },
-    {
-      title: "Divide & Conquer",
-      chapters: [
-        { slug: "merge-sort", title: "Merge Sort", number: 6 },
-        { slug: "quick-sort", title: "Quick Sort", number: 7 },
-      ],
-    },
-    {
-      title: "Advanced Sorts",
-      chapters: [{ slug: "heap-sort", title: "Heap Sort", number: 8 }],
-    },
-  ],
-};
+export const chapters: Section[] = [
+  {
+    title: "introduction",
+    chapters: [
+      { slug: "introduction", title: "what is sorting" },
+      {
+        slug: "complexity-analysis",
+        title: "complexity analysis",
+      },
+      {
+        slug: "stable-sort-vs-unstable-sort",
+        title: "stable vs unstable sort",
+      },
+      { slug: "inplace-sort", title: "inplace sort" },
+    ],
+  },
+  {
+    title: "Some Basic Sorting Algorithms",
+    chapters: [
+      { slug: "selection-sort", title: "selection sort" },
+      { slug: "bubble-sort", title: "bubble sort" },
+      { slug: "insertion-sort", title: "insertion sort" },
+    ],
+  },
+  {
+    title: "Divide & Conquer",
+    chapters: [
+      { slug: "merge-sort", title: "merge sort" },
+      { slug: "quick-sort", title: "quick sort" },
+    ],
+  },
+  {
+    title: "advanced sorts",
+    chapters: [{ slug: "heap-sort", title: "heap sort" }],
+  },
+  {
+    title: "linear sorts",
+    chapters: [
+      { slug: "counting-sort", title: "counting sort" },
+      { slug: "radix-sort", title: "radix sort" },
+      { slug: "bucket-sort", title: "bucket sort" },
+    ],
+  },
+];

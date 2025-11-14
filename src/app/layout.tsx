@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "A journey into the realm of Sorting Algorithms",
+  title: "A journey into the realms of Sorting Algorithms",
   description:
     "An intuitive presentation of my understanding about sorting algorithms.",
   robots: { index: true, follow: true },

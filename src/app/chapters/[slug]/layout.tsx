@@ -21,5 +21,4 @@ export default function ChaptersLayout({
     </div>
   );
 }
-// app/chapters/layout.tsx
 export const dynamic = "force-static"; // Cache the layout forever
