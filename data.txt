@@ -1,0 +1,122 @@
+Great project! A blog on sorting algorithms with beautiful typography and a notebook aesthetic sounds wonderful. Let's discuss the file organization before diving into the code.
+
+## Recommended File Structure
+
+For a Next.js + TypeScript blog with markdown content, here's what I'd suggest:
+
+```
+sorting-algorithms-blog/
+├── src/
+│   ├── app/
+│   │   ├── layout.tsx           # Root layout with fonts, metadata
+│   │   ├── page.tsx              # Homepage (your intro/front book)
+│   │   ├── chapters/
+│   │   │   ├── page.tsx          # Chapter index/table of contents
+│   │   │   └── [slug]/
+│   │   │       └── page.tsx      # Individual chapter renderer
+│   │   └── globals.css           # Tailwind + custom styles
+│   │
+│   ├── components/
+│   │   ├── Navigation.tsx        # Chapter navigation sidebar/menu
+│   │   ├── ChapterLayout.tsx    # Wrapper for chapter content
+│   │   ├── MarkdownRenderer.tsx # MDX/Markdown + KaTeX renderer
+│   │   └── TableOfContents.tsx  # Auto-generated TOC from headings
+│   │
+│   ├── lib/
+│   │   ├── chapters.ts           # Chapter metadata & ordering
+│   │   └── markdown.ts           # Markdown parsing utilities
+│   │
+│   └── types/
+│       └── chapter.ts            # TypeScript interfaces
+│
+├── content/
+│   ├── chapters/
+│   │   ├── 01-introduction.md
+│   │   ├── 02-bubble-sort.md
+│   │   ├── 03-selection-sort.md
+│   │   ├── 04-insertion-sort.md
+│   │   ├── 05-merge-sort.md
+│   │   └── ...
+│   └── metadata.json             # Chapter order, titles, descriptions
+│
+├── public/
+│   ├── images/                   # Diagrams, illustrations
+│   └── fonts/                    # Custom fonts if needed
+│
+└── package.json
+```
+
+## Key Decisions to Discuss:
+
+### 1. **Content Management**
+- **Option A:** Pure Markdown files in `/content/chapters/` (simpler, git-friendly)
+- **Option B:** MDX (Markdown + JSX components for interactive demos)
+- **My recommendation:** Start with pure Markdown + KaTeX, add MDX later if you need interactive visualizations
+
+### 2. **Chapter Metadata**
+Should we use:
+- **Frontmatter** in each .md file (title, date, order, description)?
+- **Separate metadata.json** for chapter ordering?
+- **Both?** (frontmatter for content-specific data, separate file for ordering)
+
+Example frontmatter:
+```yaml
+---
+title: "Bubble Sort: Understanding the Basics"
+chapter: 2
+difficulty: "beginner"
+date: "2024-01-15"
+description: "A deep dive into bubble sort with time complexity analysis"
+---
+```
+
+### 3. **Navigation Structure**
+- Linear (Previous/Next buttons only)?
+- Sidebar with expandable sections (Basics → Intermediate → Advanced)?
+- Both?
+
+### 4. **Math Rendering**
+- Use `remark-math` + `rehype-katex` for server-side rendering?
+- Or client-side KaTeX rendering?
+- Server-side is better for performance
+
+### 5. **Collaboration Features**
+- Would you want comments/discussions per chapter eventually?
+- GitHub edit links for each page?
+- Just static content for now?
+
+## My Recommendations:
+
+1. **Content in `/content/chapters/`** - Easy to edit, version control friendly
+2. **Frontmatter for metadata** - Keeps everything in one place
+3. **Server-side markdown rendering** - Better performance, SEO
+4. **Sidebar + linear navigation** - Easy chapter browsing
+5. **Group chapters by difficulty** in metadata
+
+## Proposed `metadata.json` structure:
+
+```json
+{
+  "sections": [
+    {
+      "title": "Foundations",
+      "chapters": ["01-introduction", "02-complexity-analysis"]
+    },
+    {
+      "title": "Basic Sorts",
+      "chapters": ["03-bubble-sort", "04-selection-sort", "05-insertion-sort"]
+    },
+    {
+      "title": "Divide & Conquer",
+      "chapters": ["06-merge-sort", "07-quick-sort"]
+    }
+  ]
+}
+```
+
+**What do you think?** Should we:
+- Adjust the file structure?
+- Add/remove any features?
+- Change the metadata approach?
+
+Once we align on this, I'll build the initial Next.js setup with the Dieter Rams-inspired minimal aesthetic! 📚

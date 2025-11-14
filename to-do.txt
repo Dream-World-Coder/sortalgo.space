@@ -1,0 +1,6 @@
+side bar is nav
+add a tab of table of contents here
+
+bg: FCFFE0
+bg-box: C8E4B2
+primary: 618264
