@@ -202,7 +202,7 @@ export function MarkdownRenderer({ content }: MDPrevProps) {
           remarkPlugins={[remarkGfm, remarkBreaks, remarkMath]}
           rehypePlugins={[rehypeRaw, rehypeKatex]}
           components={{
-            img: MarkdownImage,
+            // img: MarkdownImage,
 
             hr: (props) => (
               <hr
