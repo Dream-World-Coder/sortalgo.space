@@ -9,7 +9,6 @@
   --color-gray-white: #fcffe0;
   --color-light-green: #c8e4b2;
   --color-dark-green: #618264;
-  --color-f8: #f8f8f8;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -30,4 +29,87 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+blockquote {
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+  & p {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    line-height: 1.5rem !important;
+    font-size: medium !important;
+  }
+}
+
+article ul ul,
+article ol ul,
+article ul ol,
+article ol ol {
+  margin: 0 !important;
+  /* padding: 0 !important; */
+}
+
+em strong {
+  font-style: italic !important;
+  font-family: serif !important;
+  font-weight: 700 !important;
+}
+
+@font-face {
+  font-family: "Sentient-Italic";
+  src: url("/fonts/Sentient-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Sentient-Medium";
+  src: url("/fonts/Sentient-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Sentient-Regular";
+  src: url("/fonts/Sentient-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+.sentient-regular {
+  font-family:
+    "Sentient-Regular",
+    system-ui,
+    -apple-system,
+    "Helvetica Neue",
+    sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+.sentient-italic {
+  font-family:
+    "Sentient-Italic",
+    system-ui,
+    -apple-system,
+    "Helvetica Neue",
+    sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: italic;
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+}
+.sentient-bold {
+  font-family:
+    "Sentient-Medium",
+    system-ui,
+    -apple-system,
+    "Helvetica Neue",
+    sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
 }

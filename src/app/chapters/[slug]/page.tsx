@@ -1,6 +1,7 @@
 import { getChapterContent } from "@/lib/content";
-import { MarkdownRenderer } from "@/components/MarkdownRenderer";
-// import { ChapterNavigation } from "@/components/ChapterNavigation";
+import { MarkdownRenderer } from "@/components/MDRenderer";
+
+// add seo & meta data
 
 export default async function ChapterPage({
   params,
@@ -12,17 +13,19 @@ export default async function ChapterPage({
   const content = getChapterContent(slug);
 
   return (
-    <article className="max-w-3xl mx-auto p-16">
+    <article className="p-6 max-w-[85ch] mx-auto">
       <MarkdownRenderer content={content} />
-      {/*<ChapterNavigation currentSlug={slug} />*/}
     </article>
   );
 }
 
 export async function generateStaticParams() {
   return [
+    { slug: "selection-sort" },
     { slug: "bubble-sort" },
+    { slug: "insertion-sort" },
     { slug: "merge-sort" },
     { slug: "quick-sort" },
+    { slug: "heap-sort" },
   ];
 }

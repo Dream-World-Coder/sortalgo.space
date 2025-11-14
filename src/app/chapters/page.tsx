@@ -6,10 +6,10 @@ export default async function Chapters() {
   return (
     <div className="flex items-center justify-center size-full h-screen">
       <section
-        className="rounded-2xl h-[90dvh] md:h-[80vh] w-[90dvw] max-w-[1368px] bg-[#f8f8f8] text-black border-neutral-200 p-6 py-10
-        flex flex-col justify-start items-center relative"
+        className="rounded-2xl h-[90dvh] md:h-[80vh] w-[90dvw] max-w-[1368px] bg-[#f8f8f8] dark:bg-neutral-900  text-black dark:text-[#f8f8f8] border border-neutral-200 dark:border-neutral-800
+        p-6 py-10 flex flex-col justify-start items-center relative"
       >
-        {/* header -> home link */}
+        {/* /chapters -> / */}
         <nav className="absolute top-0 right-0 px-4 py-2 opacity-50 hover:opacity-100">
           <Link href="/" className="flex items-center justify-center gap-0">
             <ChevronLeft size={20} /> Back
