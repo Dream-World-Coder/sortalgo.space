@@ -750,12 +750,6 @@ A stack supports push, pop, and multipop (pops $k$ elements). Individual multipo
 
 **Solution:**
 Each element can be pushed once and popped at most once.
----
-
-### Exercise 4: Amortized Analysis (continued)
-
-**Solution:**
-Each element can be pushed once and popped at most once.
 
 **Accounting Method:**
 - Assign cost 2 to each push: 1 for the push operation, 1 as credit for future pop
