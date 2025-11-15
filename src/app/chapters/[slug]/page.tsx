@@ -2,16 +2,12 @@ import { getChapterContent } from "@/lib/content";
 import { MarkdownRenderer } from "@/components/MDRenderer";
 import metaDataParser, { ParsedMetaData } from "@/components/MetaParser";
 import { getSchemaData } from "@/components/seo";
+import { Metadata } from "next";
+import { cache } from "react";
 
-export default async function ChapterPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
+const getPageMetadata = cache(async (slug: string): Promise<ParsedMetaData> => {
   const content: string = getChapterContent(slug);
 
-  // parse the meta data
   let metaData: ParsedMetaData = {
     title: "Sorting",
     authors: ["author"],
@@ -21,16 +17,50 @@ export default async function ChapterPage({
     tags: ["sorting", "algorithms"],
     slug: "sorting",
   };
+
   try {
     metaData = metaDataParser(content);
   } catch (err) {
     console.log(err);
   }
 
-  const schemaData = getSchemaData(metaData);
+  return metaData;
+});
 
-  // console.log(`metaData: `, metaData);
-  // console.log(`schemaData: `, schemaData);
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const metaData = await getPageMetadata(slug);
+
+  return {
+    title: metaData.title,
+    description: metaData.description,
+    keywords: metaData.tags,
+    authors: metaData.authors.map((name) => ({ name })),
+    openGraph: {
+      title: metaData.title,
+      description: metaData.description,
+      type: "article",
+      publishedTime: metaData.dateCreated,
+      modifiedTime: metaData.dateEdited,
+      authors: metaData.authors,
+      tags: metaData.tags,
+    },
+  };
+}
+
+export default async function ChapterPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const content: string = getChapterContent(slug);
+  const metaData = await getPageMetadata(slug); // Uses cached result
+  const schemaData = getSchemaData(metaData);
 
   return (
     <>
