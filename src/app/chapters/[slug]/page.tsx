@@ -94,5 +94,7 @@ export async function generateStaticParams() {
     { slug: "merge-sort" },
     { slug: "quick-sort" },
     { slug: "heap-sort" },
+    { slug: "complexity-analysis" },
+    { slug: "introduction" },
   ];
 }

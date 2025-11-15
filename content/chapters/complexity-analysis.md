@@ -53,7 +53,7 @@ An algorithm's correctness is necessary but insufficient. Two correct algorithms
 Complexity analysis abstracts away hardware specifics (CPU speed, memory architecture) by counting **primitive operations**: arithmetic operations, comparisons, assignments, array accesses. We measure how these operations scale with input size $n$.
 
 **Example:** Summing array elements
-```
+```txt
 sum = 0                    // 1 operation
 for i = 0 to n-1:          // n iterations
     sum = sum + array[i]   // 2 operations per iteration (read + add)
@@ -85,7 +85,7 @@ Multiply the number of iterations by the complexity of the loop body.
 Multiply the complexities of each nested level.
 
 **Example: Bubble Sort**
-```
+```txt
 for i = 0 to n-1:              // n iterations
     for j = 0 to n-i-2:        // ~n iterations (worst case)
         if array[j] > array[j+1]:
@@ -134,7 +134,7 @@ For $n = 1000$:
 Recursive calls consume stack memory. Each call frame stores local variables and return addresses.
 
 **Example: Factorial**
-```
+```txt
 function factorial(n):
     if n <= 1:
         return 1
@@ -147,7 +147,7 @@ Maximum recursion depth: $n$. Space complexity: $O(n)$ due to call stack.
 ### 3.3 Iterative vs. Recursive Space
 
 **Iterative Fibonacci:**
-```
+```txt
 function fib(n):
     a, b = 0, 1
     for i = 2 to n:
@@ -157,7 +157,7 @@ function fib(n):
 Space: $O(1)$ (only two variables).
 
 **Recursive Fibonacci:**
-```
+```txt
 function fib(n):
     if n <= 1:
         return n
@@ -278,7 +278,7 @@ In practice, Big O dominates discussions because we care most about worst-case g
 
 ### 6.2 Example: Linear Search
 
-```
+```txt
 function linearSearch(array, target):
     for i = 0 to n-1:
         if array[i] == target:
@@ -446,7 +446,7 @@ Visualize the recurrence as a tree where each node represents a subproblem.
 
 **Example:** $T(n) = 2T(n/2) + n$
 
-```
+```txt
                 n
               /   \
            n/2     n/2
@@ -579,14 +579,14 @@ For NP-complete problems:
 ### 12.1 Loop Analysis
 
 **Single Loop:**
-```
+```txt
 for i = 0 to n:
     // O(1) operations
 ```
 Complexity: $O(n)$
 
 **Nested Loops (Independent):**
-```
+```txt
 for i = 0 to n:
     for j = 0 to m:
         // O(1)
@@ -594,7 +594,7 @@ for i = 0 to n:
 Complexity: $O(nm)$
 
 **Nested Loops (Dependent):**
-```
+```txt
 for i = 0 to n:
     for j = 0 to i:
         // O(1)
@@ -605,7 +605,7 @@ Complexity: $O(n^2)$
 ### 12.2 Logarithmic Loops
 
 **Halving:**
-```
+```txt
 i = n
 while i > 1:
     i = i / 2
@@ -614,7 +614,7 @@ Iterations: $\log_2 n$
 Complexity: $O(\log n)$
 
 **Squaring:**
-```
+```txt
 i = 2
 while i < n:
     i = i * i
@@ -628,7 +628,7 @@ Complexity: $O(\log \log n)$
 **Step 2:** Apply Master Theorem, substitution, or recursion tree.
 
 **Example: Fibonacci with Memoization**
-```
+```txt
 memo = {}
 function fib(n):
     if n in memo:
@@ -645,7 +645,7 @@ With memoization: Each of $n$ values computed once → $O(n)$
 ### 12.4 Multiple Variables
 
 **Example: Matrix Multiplication**
-```
+```txt
 for i = 0 to n:
     for j = 0 to n:
         for k = 0 to n:
@@ -664,7 +664,7 @@ Complexity: $O(n^3)$
 - Hash table operations: Average $O(1)$, worst $O(n)$ with collisions
 
 **Example: Inefficient String Building**
-```
+```txt
 result = ""
 for i = 0 to n:
     result = result + str(i)  // O(i) copy each time
@@ -672,7 +672,7 @@ for i = 0 to n:
 Total: $O(1 + 2 + ... + n) = O(n^2)$
 
 **Efficient Alternative (StringBuilder/StringBuffer):**
-```
+```txt
 result = StringBuilder()
 for i = 0 to n:
     result.append(str(i))  // O(1) amortized
@@ -699,7 +699,7 @@ Total: $O(n)$
 
 ### Exercise 1: Loop Analysis
 Analyze the time complexity:
-```
+```txt
 for i = 1 to n:
     for j = 1 to i^2:
         print(i, j)
@@ -729,7 +729,7 @@ Check regularity: $3f(n/4) = 3(n/4)^2 = \frac{3n^2}{16} \leq cf(n)$ for $c = 3/1
 
 ### Exercise 3: Space Complexity
 What is the space complexity of this function?
-```
+```txt
 function mystery(n):
     if n <= 0:
         return
@@ -805,7 +805,7 @@ Analyze all three cases for insertion sort.
 **Solution:**
 
 **Algorithm:**
-```
+```txt
 for i = 1 to n-1:
     key = array[i]
     j = i - 1
@@ -836,7 +836,7 @@ Solve $T(n) = T(n/3) + T(2n/3) + n$ using the recursion tree method.
 
 **Solution:**
 
-```
+```txt
                     n
                  /     \
               n/3       2n/3
