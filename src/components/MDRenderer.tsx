@@ -12,12 +12,13 @@ import {
 } from "react-syntax-highlighter/dist/esm/styles/prism";
 import Image from "next/image";
 import { ReactNode } from "react";
+// import { NormalizedImageElement } from "react-markdown/lib/complex-types"; // optional
 
 interface CodeBlockProps {
   inline?: boolean;
   className?: string;
   children?: ReactNode;
-  [key: string]: any;
+  // [key: string]: any;
 }
 
 export const CodeBlock = ({
@@ -162,15 +163,15 @@ function getSettingsFromAlt(altText: string): ImageSettings {
 }
 
 interface MarkdownImageProps {
-  src?: string;
-  alt?: string;
-  [key: string]: any;
+  src: string;
+  alt: string;
+  // [key: string]: any;
 }
 
 const MarkdownImage = (props: MarkdownImageProps) => {
   const { src, alt, ...rest } = props;
 
-  if (!src || !alt) return null;
+  if (!src || !alt) return <></>;
 
   const { w, h, mt, mb, p } = getSettingsFromAlt(alt);
 
@@ -199,11 +200,7 @@ const MarkdownImage = (props: MarkdownImageProps) => {
   );
 };
 
-interface MDPrevProps {
-  content: string;
-}
-
-export function MarkdownRenderer({ content }: MDPrevProps) {
+export function MarkdownRenderer({ content }: { content: string }) {
   return (
     <div className="w-full flex flex-col">
       <div id="export" className="sentient-regular w-full">
@@ -211,7 +208,13 @@ export function MarkdownRenderer({ content }: MDPrevProps) {
           remarkPlugins={[remarkGfm, remarkBreaks, remarkMath]}
           rehypePlugins={[rehypeRaw, rehypeKatex]}
           components={{
-            // img: MarkdownImage,
+            img: ({ src, alt, ...rest }) => (
+              <MarkdownImage
+                src={src?.toString() ?? ""}
+                alt={alt ?? ""}
+                {...rest}
+              />
+            ),
 
             hr: (props) => (
               <hr
