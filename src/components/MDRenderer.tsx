@@ -1,18 +1,18 @@
+import Image from "next/image";
+import { ReactNode } from "react";
+
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkBreaks from "remark-breaks";
 import rehypeRaw from "rehype-raw";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
-import "katex/dist/katex.min.css";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import {
   oneLight,
   materialDark,
 } from "react-syntax-highlighter/dist/esm/styles/prism";
-import Image from "next/image";
-import { ReactNode } from "react";
-// import { NormalizedImageElement } from "react-markdown/lib/complex-types"; // optional
+import "katex/dist/katex.min.css";
 
 interface CodeBlockProps {
   inline?: boolean;
@@ -129,7 +129,6 @@ function getSettingsFromAlt(altText: string): ImageSettings {
     p: null,
   };
 
-  // Match all settings with their values
   const regex = /(w|h|mt|mb)\.(\d+)|p\.([CSEcse])/g;
   let match;
 
@@ -143,7 +142,7 @@ function getSettingsFromAlt(altText: string): ImageSettings {
       const val = Math.min(parseInt(value), 100);
       if (!isNaN(val)) result[key] = val;
     } else if (pos) {
-      result.p = pos.toUpperCase(); // Normalize to uppercase
+      result.p = pos.toUpperCase();
     }
   }
 
@@ -174,10 +173,11 @@ const MarkdownImage = (props: MarkdownImageProps) => {
   if (!src || !alt) return <></>;
 
   const { w, h, mt, mb, p } = getSettingsFromAlt(alt);
+  // console.log(w, h, mt, mb, p); // not working, all null
 
   return (
-    <div
-      className="markdown-image-container-div relative cursor-zoom-in z-10 overflow-hidden flex items-center group"
+    <i
+      className="relative z-10 overflow-hidden flex items-center group"
       style={{
         justifyContent: p || "center",
         marginTop: mt ? `${mt}px` : "35px",
@@ -185,7 +185,7 @@ const MarkdownImage = (props: MarkdownImageProps) => {
       }}
     >
       <Image
-        className="relative object-contain transition-transform duration-300 border border-transparent group-hover:border-lime-300"
+        className="relative object-contain"
         style={{
           maxHeight: h ? `${h}px` : "468px",
           maxWidth: w ? `${w}px` : "468px",
@@ -196,7 +196,7 @@ const MarkdownImage = (props: MarkdownImageProps) => {
         height={h || 468}
         {...rest}
       />
-    </div>
+    </i>
   );
 };
 

@@ -25,7 +25,7 @@ export const chapters: Section[] = [
     ],
   },
   {
-    title: "Some Basic Sorting Algorithms",
+    title: "basic sorting algorithms",
     chapters: [
       { slug: "selection-sort", title: "selection sort" },
       { slug: "bubble-sort", title: "bubble sort" },
@@ -33,7 +33,7 @@ export const chapters: Section[] = [
     ],
   },
   {
-    title: "Divide & Conquer",
+    title: "divide and conquer",
     chapters: [
       { slug: "merge-sort", title: "merge sort" },
       { slug: "quick-sort", title: "quick sort" },
