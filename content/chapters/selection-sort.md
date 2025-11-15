@@ -1,10 +1,10 @@
 <!--metadata
   title: "Deep dive into Selection Sort"
   authors: ["Subhajit Gorai"]
-  dateCreated: "15/11/2025"
-  dateEdited: "15/11/2025"
+  dateCreated: "06/10/2025"
+  dateEdited: "17/10/2025"
   description: "Selection sort quick lookup, algorithm, code, Visualisation, Complexity Analysis"
-  tags: ["slection sort", "sorting"]
+  tags: ["selection sort", "sorting"]
   slug: "selection-sort"
 -->
 
@@ -12,7 +12,7 @@
 
 > Selection sort is an in-place, comparison-based sorting algorithm.
 It repeatedly selects the minimum element and places it in its correct position.
-Its time complexity is $O(n^2)$ in all cases, and it uses only $O(1)$ extra space.
+Its time complexity is $O(n^2)$ in all cases, and it uses only $O(1)$ auxiliary space.
 
 **Quick Look:**
   1. **Time Complexity:** $O(n^2)$ for all cases
@@ -23,10 +23,10 @@ Its time complexity is $O(n^2)$ in all cases, and it uses only $O(1)$ extra spac
 ---
 
 **Algorithm**:
-1. Suppose n is the length of the array. Start a loop for n times i.e. from index 0 to n-1, `i <- 0..n-1`
-2. set current_elm = arr[i]
-3. now find the minimum element from the rest of the array(arr[i+1..n-1]) that is lesser than the current element. store its index in a variable (here, min_idx).
-4. now swap current_elm and the minimum element `swap(arr[i], arr[min_idx])`
+  1. Suppose n is the length of the array. Start a loop for n times i.e. from index 0 to n-1, `i <- 0..n-1`
+  2. set current_elm = arr[i]
+  3. now find the minimum element from the rest of the array(arr[i+1..n-1]) that is lesser than the current element. store its index in a variable (here, min_idx).
+  4. now swap current_elm and the minimum element `swap(arr[i], arr[min_idx])`
 
 ```python
 def selection_sort(arr):
@@ -50,7 +50,7 @@ def selection_sort(arr):
 
 **Visualisation, Sorting [7, 3, 5, 2, 9]:**
 
-```scss
+```sh
 initial array:
 +---+---+---+---+---+
 | 7 | 3 | 5 | 2 | 9 |   <-- value
