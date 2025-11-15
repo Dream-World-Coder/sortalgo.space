@@ -31,9 +31,9 @@ export const CodeBlock = ({
 
   return !inline && match ? (
     // block code
-    <div className="relative my-4 overflow-hidden rounded-sm flex flex-col bg-[#fafafa] dark:bg-[#2F2F2F]">
+    <div className="relative my-4 overflow-hidden rounded-sm flex flex-col bg-[#fcfcfc] dark:bg-[#2F2F2F]">
       {/* codeHeader */}
-      <div className="flex items-center justify-between px-6 pt-2 bg-[#fafafa] dark:bg-[#2F2F2F]">
+      <div className="flex items-center justify-between px-6 pt-2 bg-[#fcfcfc] dark:bg-[#2F2F2F]">
         {/* language */}
         <span className="text-sm font-sans text-neutral-700 dark:text-neutral-300">
           {match[1]}
@@ -47,13 +47,18 @@ export const CodeBlock = ({
             style={oneLight}
             language={match[1]}
             PreTag="div"
-            wrapLongLines
-            showLineNumbers
+            wrapLongLines={false}
+            showLineNumbers={false}
             codeTagProps={{
               style: {
                 fontSize: "0.875rem",
-                lineHeight: "1.375",
+                lineHeight: "1.25",
               },
+            }}
+            customStyle={{
+              fontSize: "0.875rem",
+              lineHeight: "1.25",
+              background: "#fcfcfc",
             }}
             {...props}
           >
@@ -65,13 +70,17 @@ export const CodeBlock = ({
             style={materialDark}
             language={match[1]}
             PreTag="div"
-            wrapLongLines
-            showLineNumbers
+            wrapLongLines={false}
+            showLineNumbers={false}
             codeTagProps={{
               style: {
                 fontSize: "0.875rem",
-                lineHeight: "1.375",
+                lineHeight: "1.25",
               },
+            }}
+            customStyle={{
+              fontSize: "0.875rem",
+              lineHeight: "1.25",
             }}
             {...props}
           >
@@ -263,7 +272,7 @@ export function MarkdownRenderer({ content }: MDPrevProps) {
             ),
 
             em: ({ children }) => (
-              <em className="italic text-neutral-700 dark:text-neutral-300 sentient-italic">
+              <em className="italic text-neutral-700 dark:text-neutral-300 sentient-italic wrap-break-word">
                 {children}
               </em>
             ),

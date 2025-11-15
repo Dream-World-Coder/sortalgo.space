@@ -3,3 +3,10 @@ add a tab of table of contents here
 
 landing page is the book structure, divide it and make book
 or just simple scroll
+
+sidebar hide btn = no
+smaller font maybe = no
+
+back btn beautified
+
+code block modified

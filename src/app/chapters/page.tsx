@@ -10,8 +10,12 @@ export default async function Chapters() {
         p-6 py-10 flex flex-col justify-start items-center relative"
       >
         {/* /chapters -> / */}
-        <nav className="absolute top-0 right-0 px-4 py-2 opacity-50 hover:opacity-100">
-          <Link href="/" className="flex items-center justify-center gap-0">
+        <nav className="absolute top-0 right-0 px-2 py-2 opacity-50 hover:opacity-100 z-40">
+          <Link
+            href="/"
+            className="flex items-center justify-center gap-0 px-2 py-0.5 rounded-2xl
+            bg-stone-200 dark:bg-stone-800 border-r border-b border-stone-300 dark:border-stone-700"
+          >
             <ChevronLeft size={20} /> Back
           </Link>
         </nav>

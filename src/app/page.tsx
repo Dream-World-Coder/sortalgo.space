@@ -35,8 +35,11 @@ export default async function Home() {
 
         <Link
           href="/chapters"
-          className="mt-6 px-6 py-2 bg-stone-200 hover:bg-stone-300 dark:bg-stone-800 dark:hover:bg-stone-700 rounded-2xl"
-        >{`+ Start Reading +`}</Link>
+          className="mt-6 px-6 py-2
+          bg-stone-200 text-neutral-700 hover:text-neutral-900
+          dark:bg-stone-800 dark:text-neutral-300 dark:hover:text-neutral-50
+          rounded-2xl border-b border-r border-stone-400 dark:border-stone-700"
+        >{`Start Reading`}</Link>
       </section>
     </div>
   );
