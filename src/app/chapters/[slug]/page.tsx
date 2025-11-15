@@ -1,7 +1,7 @@
 import { getChapterContent } from "@/lib/content";
 import { MarkdownRenderer } from "@/components/MDRenderer";
-
-// add seo & meta data
+import metaDataParser, { ParsedMetaData } from "@/components/MetaParser";
+import { getSchemaData } from "@/components/seo";
 
 export default async function ChapterPage({
   params,
@@ -9,13 +9,50 @@ export default async function ChapterPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+  const content: string = getChapterContent(slug);
 
-  const content = getChapterContent(slug);
+  // parse the meta data
+  let metaData: ParsedMetaData = {
+    title: "Sorting",
+    authors: ["author"],
+    dateCreated: "15/11/2025",
+    dateEdited: "15/11/2025",
+    description: "sorting algorithms",
+    tags: ["sorting", "algorithms"],
+    slug: "sorting",
+  };
+  try {
+    metaData = metaDataParser(content);
+  } catch (err) {
+    console.log(err);
+  }
+
+  const schemaData = getSchemaData(metaData);
+
+  // console.log(`metaData: `, metaData);
+  // console.log(`schemaData: `, schemaData);
 
   return (
-    <article className="p-6 max-w-[85ch] mx-auto">
-      <MarkdownRenderer content={content} />
-    </article>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+      />
+      <article className="p-6 max-w-[85ch] mx-auto">
+        <header className="flex justify-end items-center">
+          <span className="text-sm">
+            by{" "}
+            {metaData?.authors?.length == 1
+              ? metaData.authors[0]
+              : metaData.authors[0] +
+                metaData?.authors?.slice(1).map((i) => `, ${i}`)}
+            <br />
+            <span className="text-sm opacity-80">{metaData.dateEdited}</span>
+          </span>
+        </header>
+        <MarkdownRenderer content={content} />
+      </article>
+    </>
   );
 }
 

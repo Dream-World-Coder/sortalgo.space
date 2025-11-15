@@ -1,4 +1,4 @@
-# What is Sorting?
+## What is Sorting?
 
 Sorting is the process of arranging elements in a list or array in a specific order, typically **ascending** (smallest to largest) or **descending** (largest to smallest). It is a fundamental operation in computer science used to organize data for efficient searching, processing, and presentation.
 

@@ -1,12 +1,13 @@
 side bar is nav
-add a tab of table of contents here
+add a tab of table of contents here : no, csr needed, later
 
 landing page is the book structure, divide it and make book
-or just simple scroll
+or just simple scroll = yes
 
 sidebar hide btn = no
 smaller font maybe = no
 
-back btn beautified
+date time, author details at top
+content
 
-code block modified
+seo data + meta data add in .md files or other folder
