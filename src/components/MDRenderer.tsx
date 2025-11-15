@@ -283,7 +283,7 @@ export function MarkdownRenderer({ content }: { content: string }) {
             a: ({ href, children }) => (
               <a
                 href={href}
-                className="underline font-medium sentient-regular transition-colors duration-200 text-lime-600 hover:text-lime-700 dark:text-lime-400 dark:hover:text-lime-300"
+                className="underline font-medium sentient-regular transition-colors duration-200 text-stone-600 hover:text-stone-700 dark:text-stone-400 dark:hover:text-stone-300"
                 target={href?.startsWith("http") ? "_blank" : "_self"}
                 rel={href?.startsWith("http") ? "noopener noreferrer" : ""}
               >
