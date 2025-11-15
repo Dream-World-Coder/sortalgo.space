@@ -7,7 +7,4 @@ or just simple scroll = yes
 sidebar hide btn = no
 smaller font maybe = no
 
-date time, author details at top
-content
-
-seo data + meta data add in .md files or other folder
+sitemap, manifest, favicon, responsive
