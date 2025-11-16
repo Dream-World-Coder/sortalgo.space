@@ -12,6 +12,11 @@
 
 > Quick Sort is a divide-and-conquer sorting algorithm that works by selecting a pivot element, partitioning the array into elements smaller and larger than the pivot, and then recursively sorting the partitions. It is efficient on average with $O(n\log n)$ time complexity.
 
+okay, so in partition function the variable i is for tracking the partition index, also it keeps track of the previous/latest smaller element. in the loop , j scans through the array. if greater than partition, do nothing. Else swap increment i, so now it points to an elemnt that is greater than partition, and then swaps them. now after the loop has ended, my partition is still at the end, so it has not been swapped. so lets swap (arr[i+1] with arr[high]) & i+1 is the new partition index.
+
+ekta boro elm er por choto elm thakle swapping ta bojha jai.
+
+
 **Quick Look:**
   1. **Time Complexity:** Best/Average: $O(n \log n)$ Worst: $O(n^2)$ (when pivot is always min/max)
   2. **Space Complexity:** $O(\log n)$ (recursion stack)
