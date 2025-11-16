@@ -4,13 +4,14 @@ import { ChevronLeft } from "lucide-react";
 
 export default async function Chapters() {
   return (
-    <div className="flex items-center justify-center size-full h-screen">
+    <div className="flex md:items-center justify-center size-full h-screen py-4 md:py-0">
       <section
-        className="rounded-2xl h-[90vh] md:h-[80vh] w-[90dvw] max-w-[1368px] bg-[#f8f8f8] dark:bg-neutral-900  text-black dark:text-[#f8f8f8] border border-neutral-200 dark:border-neutral-800
+        className="rounded-2xl h-full md:h-[80vh] w-[90dvw] max-w-[1368px] bg-[#f8f8f8] dark:bg-neutral-900  text-black dark:text-[#f8f8f8] border border-neutral-200 dark:border-neutral-800
         p-6 py-10 flex flex-col justify-start items-center relative"
       >
         {/* /chapters -> / */}
-        <nav className="absolute top-0 right-0 px-2 py-2 opacity-50 hover:opacity-100 z-40">
+        {/* no need of back btn in mobile as back key does the same work */}
+        <nav className="hidden sm:block absolute top-0 right-0 px-2 py-2 opacity-50 hover:opacity-100 z-40">
           <Link
             href="/"
             className="flex items-center justify-center gap-0 px-2 py-0.5 rounded-2xl

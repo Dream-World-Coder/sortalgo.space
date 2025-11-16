@@ -9,9 +9,10 @@ export default function ChaptersLayout({
 }>) {
   return (
     <div className="flex items-start justify-center size-full min-h-screen py-4 md:py-6">
-      <section className="h-full w-full max-w-[1368px] flex justify-center items-start gap-4 relative pb-10 px-4 md:px-0">
+      <section className="h-full w-full max-w-dvw md:max-w-[1368px] overflow-x-hidden flex justify-center items-start gap-4 relative pb-10 px-4 md:px-0">
         {/* /chapters/[slug] -> /chapters */}
-        <nav className="absolute top-0 right-0 px-2 py-2 z-40 text-black dark:text-white opacity-75 hover:opacity-100">
+        {/* no need of back btn in mobile as back key does the same work */}
+        <nav className="hidden sm:block absolute top-0 right-0 px-2 py-2 z-40 text-black dark:text-white opacity-75 hover:opacity-100">
           <Link
             href="/chapters"
             className="flex items-center justify-center gap-0 px-2 py-0.5 rounded-2xl
@@ -49,7 +50,7 @@ export default function ChaptersLayout({
 
         <main
           className="bg-[#f8f8f8] dark:bg-neutral-900 text-black dark:text-[#f8f8f8] border border-neutral-200 dark:border-neutral-800
-          px-0 md:px-6 py-2 md:py-10 rounded-2xl flex-1"
+          px-0 md:px-6 py-2 md:py-10 rounded-2xl flex-1 _max-w-dvw _overflow-x-hidden"
         >
           {children}
         </main>

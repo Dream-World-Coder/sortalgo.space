@@ -69,13 +69,13 @@ export default async function ChapterPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
       />
       <article className="p-6 max-w-[85ch] mx-auto">
-        <header className="flex justify-end items-center">
+        <header className="flex justify-end items-center transform -translate-y-4 md:translate-y-0">
           <span className="text-sm">
-            by{" "}
+            by,{" "}
             {metaData?.authors?.length == 1
               ? metaData.authors[0]
               : metaData.authors[0] +
-                metaData?.authors?.slice(1).map((i) => `, ${i}`)}
+                metaData?.authors?.slice(1).map((i) => ` & ${i}`)}
             <br />
             <span className="text-sm opacity-80">{metaData.dateEdited}</span>
           </span>

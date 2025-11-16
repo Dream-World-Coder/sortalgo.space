@@ -2,16 +2,16 @@ import Link from "next/link";
 
 export default async function Home() {
   return (
-    <div className="flex items-center justify-center size-full h-screen">
+    <div className="flex md:items-center justify-center size-full h-screen py-4 md:py-0">
       <section
-        className="rounded-2xl h-[90vh] md:h-[80vh] w-[90dvw] max-w-[1368px]  bg-[#f8f8f8] dark:bg-neutral-900 text-black dark:text-[#f8f8f8] border border-neutral-200 dark:border-neutral-800 p-6 py-10
+        className="rounded-2xl h-full md:h-[80vh] w-[90dvw] max-w-[1368px]  bg-[#f8f8f8] dark:bg-neutral-900 text-black dark:text-[#f8f8f8] border border-neutral-200 dark:border-neutral-800 p-6 py-10
         flex flex-col justify-start items-center"
       >
         <h1 className="font-serif capitalize text-2xl text-center">
           A journey into the realms of Sorting Algorithms
         </h1>
 
-        <p>
+        <p className="my-2">
           By
           <a href="https://www.myopencanvas.in" className="italic underline">
             {" "}
