@@ -4,7 +4,7 @@ export default async function Home() {
   return (
     <div className="flex items-center justify-center size-full h-screen">
       <section
-        className="rounded-2xl h-[90dvh] md:h-[80vh] w-[90dvw] max-w-[1368px]  bg-[#f8f8f8] dark:bg-neutral-900 text-black dark:text-[#f8f8f8] border border-neutral-200 dark:border-neutral-800 p-6 py-10
+        className="rounded-2xl h-[90vh] md:h-[80vh] w-[90dvw] max-w-[1368px]  bg-[#f8f8f8] dark:bg-neutral-900 text-black dark:text-[#f8f8f8] border border-neutral-200 dark:border-neutral-800 p-6 py-10
         flex flex-col justify-start items-center"
       >
         <h1 className="font-serif capitalize text-2xl text-center">

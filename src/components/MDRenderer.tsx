@@ -311,7 +311,7 @@ export function MarkdownRenderer({ content }: { content: string }) {
             ),
 
             table: ({ children }) => (
-              <div className="overflow-x-auto">
+              <div className="overflow-x-auto max-w-[75vw] md:max-w-none">
                 <table className="border border-gray-400 dark:border-neutral-600 bg-white dark:bg-neutral-800 w-full text-neutral-900 dark:text-neutral-100">
                   {children}
                 </table>

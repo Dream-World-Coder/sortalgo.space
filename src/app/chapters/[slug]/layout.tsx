@@ -8,7 +8,7 @@ export default function ChaptersLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex items-center justify-center size-full min-h-screen md:py-6">
+    <div className="flex items-start justify-center size-full min-h-screen py-4 md:py-6">
       <section className="h-full w-full max-w-[1368px] flex justify-center items-start gap-4 relative pb-10 px-4 md:px-0">
         {/* /chapters/[slug] -> /chapters */}
         <nav className="absolute top-0 right-0 px-2 py-2 z-40 text-black dark:text-white opacity-75 hover:opacity-100">
