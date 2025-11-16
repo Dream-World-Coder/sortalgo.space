@@ -25,7 +25,7 @@ export default function ChaptersLayout({
         {/* sidebar */}
         <aside
           className="bg-[#f8f8f8] dark:bg-neutral-900 text-black dark:text-[#f8f8f8] border border-neutral-200 dark:border-neutral-800
-          p-6 py-10 rounded-2xl hidden md:block"
+          p-6 py-10 rounded-2xl hidden lg:block"
         >
           <ul className="list mt-0 font-serif">
             {chapters.map((section) => (
