@@ -18,7 +18,7 @@ Consider a list of \( n \) **distinct** elements. The total number of possible a
 
 Each of these \( n! \) arrangements is **equally likely** if the list is randomly ordered. So, the probability of the list being in the **correct sorted order** by chance is: $P(\text{sorted}) = \frac{1}{n!}$
 
-### Intuition with Small Values
+### Comparision
 
 | \( n \) | \( n! \)  | $ \frac{1}{n!} $                |
 | ------- | --------- | ------------------------------- |
