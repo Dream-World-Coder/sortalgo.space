@@ -4,6 +4,7 @@ import metaDataParser, { ParsedMetaData } from "@/components/MetaParser";
 import { getSchemaData } from "@/components/seo";
 import { Metadata } from "next";
 import { cache } from "react";
+import Script from "next/script";
 // import { CornerPlusIcons } from "@/components/Decorum";
 
 const getPageMetadata = cache(async (slug: string): Promise<ParsedMetaData> => {
@@ -28,6 +29,7 @@ const getPageMetadata = cache(async (slug: string): Promise<ParsedMetaData> => {
   return metaData;
 });
 
+// exporting meta tags
 export async function generateMetadata({
   params,
 }: {
@@ -53,6 +55,7 @@ export async function generateMetadata({
   };
 }
 
+// page
 export default async function ChapterPage({
   params,
 }: {
@@ -61,11 +64,12 @@ export default async function ChapterPage({
   const { slug } = await params;
   const content: string = getChapterContent(slug);
   const metaData = await getPageMetadata(slug); // cached result
-  const schemaData = getSchemaData(metaData);
+  const schemaData = getSchemaData(metaData); // schema data
 
   return (
     <>
-      <script
+      <Script
+        id="article-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
       />
