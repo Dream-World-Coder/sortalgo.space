@@ -14,11 +14,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "A journey into the realms of Sorting Algorithms",
+  title: "A journey through the realms of Sorting Algorithms",
   description:
-    "An intuitive presentation of my understanding about sorting algorithms.",
+    "Interactive Blog Posts On Sorting Algorithms & Computer Science by Subhajit Gorai",
   robots: { index: true, follow: true },
 };
+
+// add schema data here & chapters also meta tags, opengraph if needed
 
 export default function RootLayout({
   children,

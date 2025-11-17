@@ -1,6 +1,7 @@
 import { chapters } from "@/lib/chapters";
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
+import { CornerPlusIcons } from "@/components/Decorum";
 
 export default function ChaptersLayout({
   children,
@@ -8,11 +9,14 @@ export default function ChaptersLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex items-start justify-center size-full min-h-screen py-4 md:py-6">
-      <section className="h-full w-full max-w-dvw md:max-w-[1368px] overflow-x-hidden flex justify-center items-start gap-4 relative pb-10 px-4 md:px-0">
+    <div className="size-full min-h-screen">
+      <section
+        className="max-w-dvw md:max-w-[1368px] mx-auto overflow-x-hidden size-full
+        flex justify-center items-start gap-4 relative pb-10 px-4 md:px-2 py-4 md:py-6"
+      >
         {/* /chapters/[slug] -> /chapters */}
         {/* no need of back btn in mobile as back key does the same work */}
-        <nav className="hidden sm:block absolute top-0 right-0 px-2 py-2 z-40 text-black dark:text-white opacity-75 hover:opacity-100">
+        <nav className="hidden sm:block absolute top-4 md:top-6 right-0 md:right-2 px-2 py-2 z-40 text-black dark:text-white opacity-75 hover:opacity-100">
           <Link
             href="/chapters"
             className="flex items-center justify-center gap-0 px-2 py-0.5 rounded-2xl
@@ -24,8 +28,8 @@ export default function ChaptersLayout({
 
         {/* sidebar */}
         <aside
-          className="bg-[#f8f8f8] dark:bg-neutral-900 text-black dark:text-[#f8f8f8] border border-neutral-200 dark:border-neutral-800
-          p-6 py-10 rounded-2xl hidden lg:block"
+          className="bg-[#f8f8f8] dark:bg-neutral-900 text-black dark:text-[#f8f8f8] border-neutral-300/80 dark:border-neutral-700/80
+          p-6 py-10 hidden lg:block h-full w-64 border border-dashed relative"
         >
           <ul className="list mt-0 font-serif">
             {chapters.map((section) => (
@@ -46,15 +50,24 @@ export default function ChaptersLayout({
               </li>
             ))}
           </ul>
+
+          <CornerPlusIcons />
         </aside>
 
         <main
-          className="bg-[#f8f8f8] dark:bg-neutral-900 text-black dark:text-[#f8f8f8] border border-neutral-200 dark:border-neutral-800
-          px-0 md:px-6 py-2 md:py-10 rounded-2xl flex-1 _max-w-dvw _overflow-x-hidden"
+          className="bg-[#f8f8f8] dark:bg-neutral-900 text-black dark:text-[#f8f8f8] border-neutral-300/80 dark:border-neutral-700/80
+          px-0 md:px-6 py-2 md:py-10 flex-1 h-full border border-dashed relative"
         >
           {children}
+
+          <CornerPlusIcons />
         </main>
       </section>
+
+      <footer className="w-full">
+        {/* feedback form, email */}
+        <div className="mx-auto max-w-[1368px] p-6"></div>
+      </footer>
     </div>
   );
 }

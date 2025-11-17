@@ -14,3 +14,6 @@ sitemap, manifest, favicon : done
 instead of depending on seperate chapters data [src/app/lib/chapters.ts], i can just create sub folders, for ordering i can add their serials in prefix, like 1_intro etc & trim it.
 but the problem it has is the folders name, file name will be almost same [except trim/ replace],
 & its a small project anyways
+
+add title tags / meta
+more decsription in home page

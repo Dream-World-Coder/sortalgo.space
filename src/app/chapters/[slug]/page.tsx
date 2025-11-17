@@ -4,6 +4,7 @@ import metaDataParser, { ParsedMetaData } from "@/components/MetaParser";
 import { getSchemaData } from "@/components/seo";
 import { Metadata } from "next";
 import { cache } from "react";
+// import { CornerPlusIcons } from "@/components/Decorum";
 
 const getPageMetadata = cache(async (slug: string): Promise<ParsedMetaData> => {
   const content: string = getChapterContent(slug);
@@ -59,7 +60,7 @@ export default async function ChapterPage({
 }) {
   const { slug } = await params;
   const content: string = getChapterContent(slug);
-  const metaData = await getPageMetadata(slug); // Uses cached result
+  const metaData = await getPageMetadata(slug); // cached result
   const schemaData = getSchemaData(metaData);
 
   return (
@@ -70,16 +71,24 @@ export default async function ChapterPage({
       />
       <article className="p-6 max-w-[85ch] mx-auto">
         <header className="flex justify-end items-center transform -translate-y-4 md:translate-y-0">
-          <span className="text-sm">
-            by,{" "}
-            {metaData?.authors?.length == 1
-              ? metaData.authors[0]
-              : metaData.authors[0] +
-                metaData?.authors?.slice(1).map((i) => ` & ${i}`)}
-            <br />
-            <span className="text-sm opacity-80">{metaData.dateEdited}</span>
-          </span>
+          <div
+            className="AUTHOR-AND-DATE flex justify-center items-center w-fit p-2 bg-[#f2f2f2] dark:bg-neutral-800/25
+            border border-dashed border-neutral-200 dark:border-neutral-700/40 relative"
+          >
+            <span className="text-sm">
+              by,{" "}
+              {metaData?.authors?.length == 1
+                ? metaData.authors[0]
+                : metaData.authors[0] +
+                  metaData?.authors?.slice(1).map((i) => ` & ${i}`)}
+              <br />
+              <span className="text-sm opacity-80">{metaData.dateEdited}</span>
+            </span>
+
+            {/*<CornerPlusIcons />*/}
+          </div>
         </header>
+
         <MarkdownRenderer content={content} />
       </article>
     </>

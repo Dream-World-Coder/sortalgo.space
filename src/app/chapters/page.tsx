@@ -1,13 +1,23 @@
 import { chapters } from "@/lib/chapters";
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
+import { CornerPlusIcons } from "@/components/Decorum";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "SortAlgo - Index",
+  description:
+    "Interactive Blog Posts On Sorting Algorithms & Computer Science by Subhajit Gorai",
+  robots: { index: true, follow: true },
+};
 
 export default async function Chapters() {
   return (
     <div className="flex md:items-center justify-center size-full h-screen py-4 md:py-0">
       <section
-        className="rounded-2xl h-full md:h-[80vh] w-[90dvw] max-w-[1368px] bg-[#f8f8f8] dark:bg-neutral-900  text-black dark:text-[#f8f8f8] border border-neutral-200 dark:border-neutral-800
-        p-6 py-10 flex flex-col justify-start items-center relative"
+        className="h-full md:h-[80vh] w-[90dvw] max-w-[1368px] bg-[#f8f8f8] dark:bg-neutral-900  text-black dark:text-[#f8f8f8]
+        border border-neutral-300/80 dark:border-neutral-700/80
+        p-6 py-10 flex flex-col justify-start items-center relative border-dashed"
       >
         {/* /chapters -> / */}
         <nav className="absolute top-0 right-0 px-2 py-2 opacity-50 hover:opacity-100 z-40">
@@ -41,6 +51,8 @@ export default async function Chapters() {
             </li>
           ))}
         </ul>
+
+        <CornerPlusIcons />
       </section>
     </div>
   );
