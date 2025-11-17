@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,21 +15,88 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "A journey through the realms of Sorting Algorithms",
+  title: "A Journey Through the Realms of Sorting Algorithms",
   description:
     "Interactive Blog Posts On Sorting Algorithms & Computer Science by Subhajit Gorai",
+  keywords: [
+    "sorting",
+    "algorithms",
+    "quicksort",
+    "heapsort",
+    "mergesort",
+    "selectionsort",
+    "bubblesort",
+    "heapsort",
+    "bucketsort",
+    "radixsort",
+    "visualisation",
+  ],
   robots: { index: true, follow: true },
-};
 
-// add schema data here & chapters also meta tags, opengraph if needed
+  openGraph: {
+    title: "A Journey Through the Realms of Sorting Algorithms",
+    description:
+      "Interactive Blog Posts On Sorting Algorithms & Computer Science by Subhajit Gorai",
+    url: "https://sortalgo.space",
+    images: ["https://www.sortalgo.space/preview.png"],
+  },
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "A Journey Through the Realms of Sorting Algorithms",
+    url: "https://sortalgo.space",
+    description:
+      "Interactive Blog Posts On Sorting Algorithms & Computer Science by Subhajit Gorai",
+    keywords: [
+      "sorting",
+      "algorithms",
+      "quicksort",
+      "heapsort",
+      "mergesort",
+      "selectionsort",
+      "bubblesort",
+      "heapsort",
+      "bucketsort",
+      "radixsort",
+      "visualisation",
+    ],
+    isPartOf: {
+      "@type": "WebSite",
+      name: "SortAlgo",
+      url: "https://sortalgo.space",
+    },
+    image: "https://www.sortalgo.space/preview.png",
+    publisher: {
+      "@type": "Organization",
+      name: "SortAlgo",
+      url: "https://sortalgo.space",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://www.sortalgo.space/preview.png",
+      },
+    },
+    author: {
+      "@type": "Person",
+      name: "Subhajit Gorai",
+      url: "https://sortalgo.space",
+    },
+  };
+
   return (
     <html lang="en">
+      <Script
+        id="schema-sortalgo"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+      />
+
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen w-full`}
       >
@@ -52,3 +120,18 @@ export default function RootLayout({
     </html>
   );
 }
+
+/*
+if i add lists of blogs in homepage, then i need to also add:
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "SortAlgo – Interactive Sorting Algorithm Blog",
+  "url": "https://sortalgo.space",
+  "description": "Explore visualisations, explanations, and interactive blog posts on sorting algorithms.",
+  "publisher": {
+    "@type": "Person",
+    "name": "Subhajit Gorai"
+  }
+}
+*/
