@@ -2,6 +2,7 @@ import { chapters } from "@/lib/chapters";
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import { CornerPlusIcons } from "@/components/Decorum";
+import Image from "next/image";
 
 export default function ChaptersLayout({
   children,
@@ -64,9 +65,34 @@ export default function ChaptersLayout({
         </main>
       </section>
 
-      <footer className="w-full">
+      <footer className="w-full py-16">
         {/* feedback form, email */}
-        <div className="mx-auto max-w-[1368px] p-6"></div>
+        <div className="mx-auto max-w-3xl p-6 flex flex-col md:flex-row items-start md:items-center justify-center">
+          <div className="image size-[125px] relative block overflow-hidden">
+            <Image
+              src="/cross.png"
+              alt="footer image"
+              width={125}
+              height={125}
+              className="object-cover"
+            />
+          </div>
+
+          <div className="flex-1 pt-6 md:pt-0 md:pl-6">
+            Was anything unclear, difficult to follow, or outdated? <br /> Then
+            don&apos;t hesitate to mail me at{" "}
+            <a
+              href="mailto:blog.opencanvas@gmail.com"
+              className="underline cursor-pointer"
+            >
+              blog.opencanvas@gmail.com
+            </a>
+            . I&apos;d love to hear your thoughts on the article, and improve it
+            based on your suggestions.
+            <br />
+            <br />© 2025 sortalgo.space. All rights reserved.
+          </div>
+        </div>
       </footer>
     </div>
   );
