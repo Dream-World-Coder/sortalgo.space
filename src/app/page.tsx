@@ -9,7 +9,7 @@ export default async function Home() {
         border border-dashed border-neutral-300/80 dark:border-neutral-700/80 p-6 py-10
         flex flex-col justify-start items-center relative"
       >
-        <h1 className="font-serif capitalize text-3xl text-center mt-20 md:mt-0">
+        <h1 className="md:font-serif capitalize text-3xl text-center mt-20 md:mt-0">
           A journey through the realms of Sorting Algorithms
         </h1>
 

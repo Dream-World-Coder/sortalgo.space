@@ -1,4 +1,6 @@
 import type { MetadataRoute } from "next";
+import fs from "fs";
+import path from "path";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.sortalgo.space";
@@ -18,16 +20,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  const chapterSlugs = [
-    "selection-sort",
-    "bubble-sort",
-    "insertion-sort",
-    "merge-sort",
-    "quick-sort",
-    "heap-sort",
-    "complexity-analysis",
-    "introduction",
-  ];
+  // read content/chapters file names & remove .md
+  const chaptersDir = path.join(process.cwd(), "content", "chapters");
+
+  const chapterSlugs: string[] = fs
+    .readdirSync(chaptersDir)
+    .filter((file) => file.endsWith(".md"))
+    .map((file) => file.replace(/\.md$/, ""));
 
   const chapterRoutes: MetadataRoute.Sitemap = chapterSlugs.map((slug) => ({
     url: `${baseUrl}/chapters/${slug}`,

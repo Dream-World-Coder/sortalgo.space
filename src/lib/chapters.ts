@@ -18,8 +18,8 @@ export const chapters: Section[] = [
         title: "complexity analysis",
       },
       {
-        slug: "stable-vs-unstable-sort",
-        title: "stable vs unstable sort",
+        slug: "stable-and-unstable-sort",
+        title: "stable and unstable sort",
       },
       { slug: "inplace-sort", title: "inplace sort" },
     ],

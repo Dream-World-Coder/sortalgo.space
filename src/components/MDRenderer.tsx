@@ -235,7 +235,7 @@ export function MarkdownRenderer({ content }: { content: string }) {
             h1: (
               { children }, // customised for only used once as title, h1 is never used again
             ) => (
-              <h1 className="mt-0 mb-6 md:mt-0 md:mb-16 leading-tight tracking-tight text-4xl md:text-5xl font-bold md:font-semibold font-serif flex items-center gap-2 justify-start group text-neutral-900 dark:text-neutral-100">
+              <h1 className="mt-0 mb-6 md:mt-0 md:mb-16 leading-tight tracking-tight text-4xl md:text-5xl font-semibold md:font-semibold md:font-serif flex items-center gap-2 justify-start group text-neutral-900 dark:text-neutral-100">
                 {children}
               </h1>
             ),

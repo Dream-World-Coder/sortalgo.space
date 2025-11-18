@@ -1,12 +1,14 @@
 <!--metadata
-  title: "stable vs unstable sort"
+  title: "stable and unstable sort"
   authors: ["Subhajit Gorai"]
   dateCreated: "15/11/2025"
   dateEdited: "16/11/2025"
   description: "..."
   tags: ["sorting"]
-  slug: "stable-vs-unstable-sort"
+  slug: "stable-and-unstable-sort"
 -->
+
+# Stable and Unstable Sort
 
 **<u>Stable sort:</u>**
 A sorting algorithm is stable if, when two elements have the same key (the value being compared), their relative order from the original input is preserved in the sorted output.

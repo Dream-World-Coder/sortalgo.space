@@ -113,7 +113,7 @@ export default async function Chapters() {
 
           <h1 className="font-serif capitalize text-2xl text-center">Index</h1>
 
-          <ul className="list mt-24 _grid columns-1 md:columns-2 md:gap-x-36 font-serif">
+          <ul className="list mt-24 columns-1 md:columns-2 md:gap-x-36 font-serif">
             {chapters.map((section) => (
               <li key={section.title} className="pb-4">
                 <h3 className="font-bold capitalize">{section.title}</h3>
@@ -122,7 +122,7 @@ export default async function Chapters() {
                     <li key={chapter.slug}>
                       <Link
                         href={`/chapters/${chapter.slug}`}
-                        className="capitalize hover:underline"
+                        className="capitalize hover:underline font-sans md:font-serif"
                       >
                         {chapter.title}
                       </Link>
