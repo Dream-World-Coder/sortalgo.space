@@ -28,12 +28,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter((file) => file.endsWith(".md"))
     .map((file) => file.replace(/\.md$/, ""));
 
-  const chapterRoutes: MetadataRoute.Sitemap = chapterSlugs.map((slug) => ({
-    url: `${baseUrl}/chapters/${slug}`,
-    lastModified: new Date().toISOString(),
-    changeFrequency: "weekly",
-    priority: 1.0,
-  }));
+  const chapterRoutes: MetadataRoute.Sitemap = chapterSlugs.map((slug) => {
+    const filePath = path.join(chaptersDir, `${slug}.md`);
+    const stats = fs.statSync(filePath);
+
+    return {
+      url: `${baseUrl}/chapters/${slug}`,
+      lastModified: stats.mtime.toISOString(),
+      changeFrequency: "weekly",
+      priority: 1.0,
+    };
+  });
 
   return [...staticRoutes, ...chapterRoutes];
 }
