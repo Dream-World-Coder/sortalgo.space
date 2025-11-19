@@ -141,7 +141,7 @@ export default function SelectionSortAnim() {
         </button>
         {steps.length > 0 && (
           <StepBtns
-            steps={steps}
+            stepsLen={steps.length}
             currentStep={currentStep}
             setCurrentStepAction={setCurrentStep}
           />
@@ -155,7 +155,7 @@ export default function SelectionSortAnim() {
               let fill = "#171717";
               if (currentState.sorted.includes(idx)) fill = "#0000ff";
               else if (currentState.pivot === idx) fill = "#ff0000";
-              else if (currentState.comparing.includes(idx)) fill = "#00ff00";
+              else if (currentState.comparing?.includes(idx)) fill = "#00ff00";
 
               return (
                 <div key={idx} className="flex flex-col items-center gap-1">
@@ -173,7 +173,7 @@ export default function SelectionSortAnim() {
           </div>
 
           <StepsProgressInput
-            steps={steps}
+            stepsLen={steps.length}
             currentStep={currentStep}
             setCurrentStepAction={setCurrentStep}
           />

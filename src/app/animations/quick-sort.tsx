@@ -149,7 +149,7 @@ export default function QuicksortAnim() {
         </button>
         {steps.length > 0 && (
           <StepBtns
-            steps={steps}
+            stepsLen={steps.length}
             currentStep={currentStep}
             setCurrentStepAction={setCurrentStep}
           />
@@ -165,7 +165,7 @@ export default function QuicksortAnim() {
                 fill = "#0000ff"; // sorted blue
               else if (currentState.pivot === idx)
                 fill = "#ff0000"; // pivot red
-              else if (currentState.comparing.includes(idx)) fill = "#00ff00"; // comparing green
+              else if (currentState.comparing?.includes(idx)) fill = "#00ff00"; // comparing green
 
               return (
                 <div key={idx} className="flex flex-col items-center gap-1">
@@ -183,7 +183,7 @@ export default function QuicksortAnim() {
           </div>
 
           <StepsProgressInput
-            steps={steps}
+            stepsLen={steps.length}
             currentStep={currentStep}
             setCurrentStepAction={setCurrentStep}
           />

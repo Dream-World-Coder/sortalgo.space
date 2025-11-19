@@ -1,7 +1,7 @@
 "use client";
 
 import { Dispatch, SetStateAction } from "react";
-import { LegendMarker, Step } from "./types";
+import { LegendMarker } from "./types";
 
 export const validateAndParse = (str: string): number[] | null => {
   try {
@@ -60,11 +60,11 @@ export function ArrayInput({
 }
 
 export function StepBtns({
-  steps,
+  stepsLen,
   currentStep,
   setCurrentStepAction,
 }: {
-  steps: Step[];
+  stepsLen: number;
   currentStep: number;
   setCurrentStepAction: Dispatch<SetStateAction<number>>;
 }) {
@@ -79,9 +79,9 @@ export function StepBtns({
       </button>
       <button
         onClick={() =>
-          setCurrentStepAction(Math.min(steps.length - 1, currentStep + 1))
+          setCurrentStepAction(Math.min(stepsLen - 1, currentStep + 1))
         }
-        disabled={currentStep === steps.length - 1}
+        disabled={currentStep === stepsLen - 1}
         className="px-4 py-2 border border-black text-sm font-serif disabled:opacity-30 disabled:cursor-not-allowed"
       >
         Next
@@ -97,11 +97,11 @@ export function StepBtns({
 }
 
 export function StepsProgressInput({
-  steps,
+  stepsLen,
   currentStep,
   setCurrentStepAction,
 }: {
-  steps: Step[];
+  stepsLen: number;
   currentStep: number;
   setCurrentStepAction: Dispatch<SetStateAction<number>>;
 }) {
@@ -110,13 +110,13 @@ export function StepsProgressInput({
       <input
         type="range"
         min="0"
-        max={steps.length - 1}
+        max={stepsLen - 1}
         value={currentStep}
         onChange={(e) => setCurrentStepAction(parseInt(e.target.value))}
         className="flex-1"
       />
       <span className="text-sm font-mono">
-        Step {currentStep + 1} / {steps.length}
+        Step {currentStep + 1} / {stepsLen}
       </span>
     </div>
   );
