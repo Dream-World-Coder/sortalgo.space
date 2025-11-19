@@ -160,12 +160,11 @@ export default function QuicksortAnim() {
         <>
           <div className="mb-6 h-64 flex items-end justify-center gap-1 border border-gray-300 p-4">
             {currentState.array.map((val: number, idx: number) => {
-              let fill = "#171717";
-              if (currentState.sorted.includes(idx))
-                fill = "#0000ff"; // sorted blue
-              else if (currentState.pivot === idx)
-                fill = "#ff0000"; // pivot red
-              else if (currentState.comparing?.includes(idx)) fill = "#00ff00"; // comparing green
+              let fill = markers[3].fill;
+              if (currentState.sorted.includes(idx)) fill = markers[2].fill;
+              else if (currentState.pivot === idx) fill = markers[0].fill;
+              else if (currentState.comparing?.includes(idx))
+                fill = markers[1].fill;
 
               return (
                 <div key={idx} className="flex flex-col items-center gap-1">
