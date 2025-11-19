@@ -8,6 +8,8 @@ export type Step = {
   swapping?: number[];
   dividing?: number[];
   merging?: number[];
+  bucketing?: number[];
+  examining?: number[];
 };
 
 export type LegendMarker = {
