@@ -1,10 +1,13 @@
 import { getChapterContent } from "@/lib/content";
+import { getNextArticle } from "@/lib/chapters";
 import { MarkdownRenderer } from "@/components/MDRenderer";
 import metaDataParser, { ParsedMetaData } from "@/components/MetaParser";
 import { getSchemaData } from "@/components/seo";
 import { Metadata } from "next";
 import { cache } from "react";
 import Script from "next/script";
+import Link from "next/link";
+import { ChevronRight } from "lucide-react";
 // import { CornerPlusIcons } from "@/components/Decorum";
 
 const getPageMetadata = cache(async (slug: string): Promise<ParsedMetaData> => {
@@ -66,6 +69,21 @@ export default async function ChapterPage({
   const metaData = await getPageMetadata(slug); // cached result
   const schemaData = getSchemaData(metaData); // schema data
 
+  async function Animation() {
+    try {
+      const mod = await import(`@/app/animations/${slug}.tsx`);
+      const Content = mod.default;
+
+      return <Content />;
+    } catch (err) {
+      console.log("animation not found for", slug, ". error: ", err);
+      return <></>;
+    }
+  }
+
+  const nextSlug: { slug: string; title?: string } | null =
+    getNextArticle(slug);
+
   return (
     <>
       <Script
@@ -94,6 +112,31 @@ export default async function ChapterPage({
         </header>
 
         <MarkdownRenderer content={content} />
+
+        {/* --- */}
+        <Animation />
+
+        {/* next article */}
+        {nextSlug && nextSlug.slug === "last" ? (
+          <div className="w-full mt-6 italic">
+            I hope these articles helped you even by a little, <br />
+            <span className="underline">Thank you,</span> for continuing till
+            the end!
+          </div>
+        ) : (
+          <div className="w-full capitalize flex justify-end items-center group mt-6">
+            <Link
+              href={`/chapters/${nextSlug?.slug}`}
+              className="flex items-center border border-black dark:border-white py-1 px-4"
+            >
+              Next: {nextSlug?.title}
+              <ChevronRight
+                size={20}
+                className="transform translate-x-0 group-hover:translate-x-1"
+              />
+            </Link>
+          </div>
+        )}
       </article>
     </>
   );

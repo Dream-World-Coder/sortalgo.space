@@ -5,6 +5,8 @@
   --foreground: #171717;
 }
 
+@custom-variant dark (&:is(.dark *));
+
 @theme inline {
   --color-light-green: #c8e4b2;
   --color-dark-green: #618264;

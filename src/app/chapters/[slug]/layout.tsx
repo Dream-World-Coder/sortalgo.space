@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import { CornerPlusIcons } from "@/components/Decorum";
 import Image from "next/image";
+import DarkModeBtn from "@/components/dark-mode-btn";
 
 export default function ChaptersLayout({
   children,
@@ -17,11 +18,12 @@ export default function ChaptersLayout({
       >
         {/* /chapters/[slug] -> /chapters */}
         {/* no need of back btn in mobile as back key does the same work */}
-        <nav className="hidden sm:block absolute top-4 md:top-6 right-0 md:right-2 px-2 py-2 z-40 text-black dark:text-white opacity-75 hover:opacity-100">
+        <nav className="absolute top-4 md:top-6 right-0 md:right-2 px-2 py-2 z-40 flex items-center justify-center gap-2">
+          <DarkModeBtn />
           <Link
             href="/chapters"
-            className="flex items-center justify-center gap-0 px-2 py-0.5 rounded-2xl
-            bg-stone-200 dark:bg-stone-800 border-r border-b border-stone-300 dark:border-stone-700"
+            className="hidden sm:flex items-center justify-center gap-0 px-2 py-0.5 rounded-2xl opacity-75 hover:opacity-100
+            bg-stone-200 dark:bg-stone-800 border-r border-b border-stone-300 dark:border-stone-700 text-black dark:text-white"
           >
             <ChevronLeft size={20} /> Back
           </Link>
@@ -65,7 +67,7 @@ export default function ChaptersLayout({
         </main>
       </section>
 
-      <footer className="w-full py-16">
+      <footer className="w-full py-16 text-black dark:text-white">
         {/* feedback form, email */}
         <div className="mx-auto max-w-3xl p-6 flex flex-col md:flex-row items-start md:items-center justify-center">
           <div className="image size-[125px] relative block overflow-hidden">

@@ -286,8 +286,6 @@ Key insight: Partition around pivot so it's in final position,
             Unlike merge sort, the work is in partitioning, not combining!
 ```
 
-**For detailed step by step animation, visit:** [https://dsa-experiments.vercel.app/recursion/quick-sort](https://dsa-experiments.vercel.app/recursion/quick-sort)
-
 **Complexity Analysis:**
 In Quick Sort, we select a pivot element, partition the array around the pivot, and recursively sort the subarrays.
 
@@ -320,3 +318,5 @@ with base case: $T(1) = \Theta(1)$
 
 Expanding the recurrence:
 $$T(n) = T(n-1) + \Theta(n) = T(n-2) + \Theta(n-1) + \Theta(n) = \dots = \Theta(1 + 2 + \dots + n) = \boxed{\Theta(n^2)}$$
+
+**For more animations, visit:** [https://dsa-experiments.vercel.app/recursion/quick-sort](https://dsa-experiments.vercel.app/recursion/quick-sort)

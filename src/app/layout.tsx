@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import Script from "next/script";
+import { ThemeProvider } from "@/contexts/theme-context";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -97,26 +98,28 @@ export default function RootLayout({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
       />
 
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen w-full`}
-      >
-        <div
-          className="min-h-screen w-full antialiased dark:hidden fixed -z-10"
-          style={{
-            background:
-              "repeating-linear-gradient(135deg, #f0f0f0 0px, #f0f0f0 3px, #e8e8e8 5px, #e8e8e8 4px)",
-          }}
-        />
-        <div
-          className="min-h-screen w-full antialiased hidden dark:block fixed -z-10"
-          style={{
-            background:
-              "repeating-linear-gradient(135deg, #1c1c1c 0px, #1c1c1c 3px, #252525 5px, #252525 4px)",
-          }}
-        />
-        {children}
-        <Analytics />
-      </body>
+      <ThemeProvider>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen w-full`}
+        >
+          <div
+            className="min-h-screen w-full antialiased dark:hidden fixed -z-10"
+            style={{
+              background:
+                "repeating-linear-gradient(135deg, #f0f0f0 0px, #f0f0f0 3px, #e8e8e8 5px, #e8e8e8 4px)",
+            }}
+          />
+          <div
+            className="min-h-screen w-full antialiased hidden dark:block fixed -z-10"
+            style={{
+              background:
+                "repeating-linear-gradient(135deg, #1c1c1c 0px, #1c1c1c 3px, #252525 5px, #252525 4px)",
+            }}
+          />
+          {children}
+          <Analytics />
+        </body>
+      </ThemeProvider>
     </html>
   );
 }
