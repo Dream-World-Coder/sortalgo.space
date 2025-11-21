@@ -145,15 +145,22 @@ export default async function ChapterPage({
 export async function generateStaticParams() {
   return [
     { slug: "introduction" },
-    { slug: "complexity-analysis" },
+    // { slug: "complexity-analysis" },
     { slug: "stable-and-unstable-sort" },
-    { slug: "inplace-sort" },
-    { slug: "selection-sort" },
+
+    { slug: "minima-extraction" },
+    { slug: "divide-and-conquer" },
+
     { slug: "bubble-sort" },
+    { slug: "selection-sort" },
     { slug: "insertion-sort" },
+    { slug: "shell-sort" },
+
     { slug: "merge-sort" },
     { slug: "quick-sort" },
+
     { slug: "heap-sort" },
+
     { slug: "counting-sort" },
     { slug: "radix-sort" },
     { slug: "bucket-sort" },

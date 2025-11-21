@@ -14,7 +14,7 @@
 
 okay, so in partition function the variable i is for tracking the partition index, also it keeps track of the previous/latest smaller element. in the loop , j scans through the array. if greater than partition, do nothing. Else swap increment i, so now it points to an elemnt that is greater than partition, and then swaps them. now after the loop has ended, my partition is still at the end, so it has not been swapped. so lets swap (arr[i+1] with arr[high]) & i+1 is the new partition index.
 
-ekta boro elm er por choto elm thakle swapping ta bojha jai.
+<!--ekta boro elm er por choto elm thakle swapping ta bojha jai.-->
 
 
 **Quick Look:**
@@ -37,10 +37,10 @@ def quick_sort(arr: list[int]) -> list[int]:
         return arr
 
     pivot = arr[0]
-    smaller = [x for x in arr if x < pivot]
-    larger  = [x for x in arr if x > pivot]
+    smaller_eq = [x for x in arr[1:] if x <= pivot]
+    larger  = [x for x in arr[1:] if x > pivot]
 
-    return quick_sort(smaller) + [pivot] + quick_sort(larger)
+    return quick_sort(smaller_eq) + [pivot] + quick_sort(larger)
 ```
 
 ```c

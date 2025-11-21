@@ -13,23 +13,30 @@ export const chapters: Section[] = [
     title: "introduction",
     chapters: [
       { slug: "introduction", title: "what is sorting" },
-      {
-        slug: "complexity-analysis",
-        title: "complexity analysis",
-      },
+      // {
+      //   slug: "complexity-analysis",
+      //   title: "complexity analysis",
+      // },
       {
         slug: "stable-and-unstable-sort",
         title: "stable and unstable sort",
       },
-      { slug: "inplace-sort", title: "inplace sort" },
+    ],
+  },
+  {
+    title: "sorting techniques",
+    chapters: [
+      { slug: "minima-extraction", title: "minima extraction" },
+      { slug: "divide-and-conquer", title: "divide & conquer" },
     ],
   },
   {
     title: "basic sorting algorithms",
     chapters: [
-      { slug: "selection-sort", title: "selection sort" },
       { slug: "bubble-sort", title: "bubble sort" },
+      { slug: "selection-sort", title: "selection sort" },
       { slug: "insertion-sort", title: "insertion sort" },
+      { slug: "shell-sort", title: "shell sort" },
     ],
   },
   {

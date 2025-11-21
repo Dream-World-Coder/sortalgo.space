@@ -1,6 +1,6 @@
 # Sorting with Minima Extraction
 
-**How can we sort an array?**
+## How can we sort an array?
 
 in sorting the expectation from the output is quite simple, all progressive elemnts will be >= (or <= for larfest first) then current element. lets stick to ascending sorted order for now. SO how to sort? Can you think of an algorithm?
 
@@ -60,4 +60,4 @@ for i in 1..N:
 
 // time complexity
 
-heap : extract min is log n now, so nlogn!
+heap : extract min is log n now, so n*log(n!)

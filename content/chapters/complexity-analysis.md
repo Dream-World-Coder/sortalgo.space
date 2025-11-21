@@ -1,6 +1,6 @@
 <!--metadata
   title: "Algorithmic Complexity Analysis"
-  authors: ["Subhajit Gorai"]
+  authors: ["Claude Sonnet 4.5", "Subhajit Gorai"]
   dateCreated: "15/11/2025"
   dateEdited: "16/11/2025"
   description: "..."
