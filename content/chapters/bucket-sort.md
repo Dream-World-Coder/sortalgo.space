@@ -10,6 +10,8 @@
 
 # Bucket Sort
 
+## $in\ making$
+
 **Time Complexity:**
 
 - Average: $O(n + k)$
@@ -58,12 +60,6 @@ def bucket_sort(arr):
 ```sh
 BUCKET SORT VISUALIZATION
 ==========================
-
-Algorithm: 1) Divide range into buckets
-           2) Distribute elements into buckets
-           3) Sort each bucket individually
-           4) Concatenate all buckets
-           Works well for uniformly distributed data
 
 Initial array (using decimals for better demonstration):
 +------+------+------+------+------+
@@ -238,11 +234,4 @@ Time Complexity:
 - Best: O(n) when uniformly distributed
 
 Space Complexity: O(n + k)
-
-Key insights:
-- Excellent for uniformly distributed data
-- Performance depends on distribution quality
-- Number of buckets affects efficiency
-- Each bucket sorted independently (parallelizable!)
-- Not comparison-based for distribution step
 ```

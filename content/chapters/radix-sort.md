@@ -10,12 +10,19 @@
 
 # Radix Sort
 
+## $in\ making$
+
 **Time Complexity:** $O(d \cdot (n + b))$
 
 - `d` = number of digits
 - `b` = base (usually 10)
   **Space Complexity:** $O(n + b)$
   **Stability:** _Stable_ (uses stable subroutine like counting sort)
+- NOT a comparison-based sort (doesn't compare elements)
+- Stable sort (preserves relative order of equal elements)
+- Efficient for integers with limited digits
+- Processes least significant digit first (LSD Radix Sort)
+- Each pass uses counting sort on current digit
 
 ---
 
@@ -207,11 +214,4 @@ Time Complexity: O(d × (n + k))
 
 Space Complexity: O(n + k)
 - Extra space for counting array and output array
-
-Key insights:
-- NOT a comparison-based sort (doesn't compare elements)
-- Stable sort (preserves relative order of equal elements)
-- Efficient for integers with limited digits
-- Processes least significant digit first (LSD Radix Sort)
-- Each pass uses counting sort on current digit
 ```

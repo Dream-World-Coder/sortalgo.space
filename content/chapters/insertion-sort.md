@@ -53,9 +53,6 @@ def insertion_sort(arr):
 INSERTION SORT VISUALIZATION
 =============================
 
-Algorithm: Build sorted portion from left to right.
-           Pick each element and insert it into correct position in sorted portion.
-
 Initial array:
 +---+---+---+---+---+
 | 7 | 3 | 5 | 2 | 9 |   <-- value
@@ -177,9 +174,6 @@ Iteration 1: Insert 3 → 1 comparison, 1 shift
 Iteration 2: Insert 5 → 1 comparison, 1 shift
 Iteration 3: Insert 2 → 3 comparisons, 3 shifts
 Iteration 4: Insert 9 → 1 comparison, 0 shifts
-
-Key insight: Like sorting playing cards in your hand!
-            Pick next card and slide it into correct position.
 ```
 
 **Complexity Analysis:**

@@ -21,6 +21,7 @@ export const metadata: Metadata = {
     "bucketsort",
     "radixsort",
     "visualisation",
+    "sorting techniques",
   ],
   robots: { index: true, follow: true },
 
@@ -53,6 +54,7 @@ export default async function Chapters() {
       "bucketsort",
       "radixsort",
       "visualisation",
+      "sorting techniques",
     ],
     image: "https://www.sortalgo.space/preview.png",
     publisher: {
@@ -113,7 +115,7 @@ export default async function Chapters() {
 
           <h1 className="font-serif capitalize text-2xl text-center">Index</h1>
 
-          <ul className="list mt-24 columns-1 md:columns-2 md:gap-x-36 font-serif">
+          <ul className="list mt-12 md:mt-24 columns-1 md:columns-2 md:gap-x-36 font-serif">
             {chapters.map((section) => (
               <li key={section.title} className="pb-4">
                 <h3 className="font-bold capitalize">{section.title}</h3>

@@ -42,12 +42,12 @@ It can't be determined, mainly depends on the implementation and if the algorith
 		- first `(3,x) & (1,x)` are swapped.
 		- so `[(1,x), (3,y), (3,x)]` is the result.
 		- but sorting `[(3,x), (3,y), (1,x), (2,x)]` will give stable result.
-	- In <u>Quick Sort</u> the partition index creates abrupt placement and hence instability. Consider the case for similar valued list:
+	- In <u>Quick Sort</u> <mark>the partition index creates abrupt placement and hence instability.</mark> Consider the case for similar valued list:
 		- sorting: `[(3,a), (2,x), (3,b)]`
 		- partition element = (3,b) (last element as pivot)
 		- after partition: `[<partition]+[partition]+[>=partition]` -> `[(2,x), (3,b), (3,a)]`
 		- (3,b) jumped ahead of (3,a): __order changed__
-	- In <u>Heap Sort</u> we first build a max-heap from the array and then repeatedly extract the maximum element. During heapify operations, elements are moved based on heap property (parent >= children), not their original order. When building the heap or performing heapify, equal elements can be placed in arbitrary positions.
+	- In <u>Heap Sort</u> we first build a max-heap from the array and then repeatedly extract the maximum element. During heapify operations, <mark>elements are moved based on heap property (parent >= children), not their original order.</mark> When building the heap or performing heapify, equal elements can be placed in arbitrary positions.
 		- eg: sorting `[(3,a), (3,b), (1,x)]`
 		- after building max-heap and extracting: `[(1,x), (3,b), (3,a)]`
 		- (3,b) came before (3,a): __order changed__

@@ -28,50 +28,35 @@ Build a max-heap from the array. Repeatedly extract the maximum element (root), 
     2. Reduce the heap size by 1.
     3. Heapify from index 0 to restore the max-heap property.
 
-```c
-// function to swap two integers
-void swap(int *a, int *b) {
-    int temp = *a;
-    *a = *b;
-    *b = temp;
-}
+```python
+def max_heapify(arr, index, heap_size):
+  left = 2*index + 1
+  right = 2*index + 2
 
-// heapify function to maintain max-heap property
-void heapify(int arr[], int n, int i) {
-    int largest = i;          // initialize largest as root
-    int left = 2 * i + 1;     // left child
-    int right = 2 * i + 2;    // right child
+  largest = index
 
-    // if left child is larger than root
-    if (left < n && arr[left] > arr[largest])
-        largest = left;
+  if left < heap_size and arr[left] > arr[largest]:
+    largest = left
 
-    // if right child is larger than largest so far
-    if (right < n && arr[right] > arr[largest])
-        largest = right;
+  if right < heap_size and arr[right] > arr[largest]:
+    largest = right
 
-    // if largest is not root, swap and continue heapifying
-    if (largest != i) {
-        swap(&arr[i], &arr[largest]);
-        heapify(arr, n, largest);
-    }
-}
+  if largest != index:
+    arr[largest], arr[index] = arr[index], arr[largest]
+    max_heapify(arr, largest, heap_size)
 
-// main heapsort function
-void heapSort(int arr[], int n) {
-    // build max heap
-    for (int i = n / 2 - 1; i >= 0; i--)
-        heapify(arr, n, i);
+def heapsort(arr):
+  n = len(arr)
 
-    // one by one extract elements from heap
-    for (int i = n - 1; i > 0; i--) {
-        // move current root to end
-        swap(&arr[0], &arr[i]);
+  # building max heap
+  for i in range(n//2 - 1, -1, -1):
+    max_heapify(arr, i, n)
 
-        // call heapify on the reduced heap
-        heapify(arr, i, 0);
-    }
-}
+  # swapping the max(arr[0]) with last, then reducing heap size by 1
+  # i<-n-1..1 not n-1..0 as single item is already sorted at the last
+  for i in range(n-1, 0, -1):
+    arr[0], arr[i] = arr[i], arr[0]
+    max_heapify(arr, 0, i)
 ```
 ---
 
@@ -80,10 +65,6 @@ void heapSort(int arr[], int n) {
 ```sh
 HEAP SORT VISUALIZATION
 ========================
-
-Algorithm: 1) Build a max-heap from array
-           2) Repeatedly extract max (root) and place at end
-           Uses binary heap data structure
 
 Initial array:
 +---+---+---+---+---+
@@ -261,19 +242,6 @@ Finally sorted:
 +---+---+---+---+---+
 | 2 | 3 | 5 | 7 | 9 |
 +---+---+---+---+---+
-
-
-Summary:
---------
-Time Complexity: O(n log n)
-- Build heap: O(n)
-- n extractions × O(log n) heapify = O(n log n)
-
-Space Complexity: O(1)
-- Sorts in-place
-
-Key insight: Use max-heap to repeatedly extract largest element.
-            Each extraction moves max to end and maintains heap property.
 ```
 
 ---

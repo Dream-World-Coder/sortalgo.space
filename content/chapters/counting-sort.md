@@ -10,6 +10,8 @@
 
 # Counting Sort
 
+## $in\ making$
+
 **Time Complexity:** $O(n + k)$ where `k` is range of input
 **Space Complexity:** $O(k)$
 **Stability:** _Can be stable_ (with proper implementation)
@@ -55,11 +57,6 @@ def counting_sort(arr):
 ```sh
 COUNTING SORT VISUALIZATION
 ============================
-
-Algorithm: 1) Count frequency of each value
-           2) Calculate cumulative counts (positions)
-           3) Place elements in sorted order using counts
-           Works for non-negative integers with limited range
 
 Initial array:
 +---+---+---+---+---+---+---+---+
@@ -264,12 +261,4 @@ Time Complexity: O(n + k)
 Space Complexity: O(n + k)
 - count array of size k
 - output array of size n
-
-Key insights:
-- NOT comparison-based (doesn't compare elements)
-- Stable sort (preserves relative order of equal elements)
-- Efficient when k is small relative to n
-- Used as subroutine in radix sort
-- Processing right-to-left ensures stability
-- Direct indexing makes it very fast for small ranges
 ```

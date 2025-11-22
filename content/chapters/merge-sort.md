@@ -12,7 +12,7 @@
 
 > Merge Sort is a divide-and-conquer sorting algorithm that works by recursively dividing the array into two halves, sorting each half, and then merging the sorted halves to produce the final sorted array. It guarantees a time complexity of $O(n\log n)$ in all cases and is a stable sorting algorithm.
 
-**Quick Look:**
+### Quick Look:
   1. **Time Complexity:** $O(n \log n)$ for all cases
   2. **Space Complexity:** $O(n)$
   3. **Stability:** _Stable_
@@ -21,14 +21,14 @@
 
 ---
 
-**Algorithm (Divide & Conquer):**
+### Algorithm (Divide & Conquer):
   1. Divide array into two halves.
   2. Recursively sort both halves.
   3. Merge the sorted halves.
 
 ---
 
-### C Implementation
+**C Implementation**
 
 ```c
 #include <stdio.h>
@@ -40,6 +40,7 @@ void merge(int *arr, int start, int mid, int end) {
   int *tmp_arr = (int *)malloc((end - start + 1) * sizeof(int));
   int k = 0;
 
+  // compare and add in tmp arr
   while (i <= mid && j <= end) {
     if (arr[i] < arr[j])
       tmp_arr[k++] = arr[i++];
@@ -47,9 +48,11 @@ void merge(int *arr, int start, int mid, int end) {
       tmp_arr[k++] = arr[j++];
   }
 
+  // adding remaining elements
   while (i <= mid) tmp_arr[k++] = arr[i++];
   while (j <= end) tmp_arr[k++] = arr[j++];
 
+  // copying back to original
   for (int i = 0; i < (end - start + 1); i++)
     arr[i + start] = tmp_arr[i];
 
@@ -68,14 +71,11 @@ void merge_sort(int *arr, int start, int end) {
 
 ---
 
-**Visualisation, Sorting [7, 3, 5, 2, 9]:**
+### Visualisation, Sorting [7, 3, 5, 2, 9]:
 
 ```sh
 MERGE SORT VISUALIZATION
 =========================
-
-Algorithm: Divide array into halves recursively, then merge sorted halves.
-           Uses divide-and-conquer approach.
 
 Initial array:
 +---+---+---+---+---+
@@ -220,12 +220,9 @@ Time Complexity: O(n log n)
 
 Space Complexity: O(n)
 - Requires temporary arrays for merging
-
-Key insight: Recursively split until trivial (size 1),
-            then merge sorted pieces back together!
 ```
 
-**Complexity Analysis:**
+### Complexity Analysis:
 In Merge Sort, we recursively divide the array into two halves, sort each half, and then merge the sorted halves.
 
 **Recurrence Relation:**

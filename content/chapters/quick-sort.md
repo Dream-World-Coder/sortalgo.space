@@ -12,15 +12,19 @@
 
 > Quick Sort is a divide-and-conquer sorting algorithm that works by selecting a pivot element, partitioning the array into elements smaller and larger than the pivot, and then recursively sorting the partitions. It is efficient on average with $O(n\log n)$ time complexity.
 
+<!--
+#######################################################################################
 okay, so in partition function the variable i is for tracking the partition index, also it keeps track of the previous/latest smaller element. in the loop , j scans through the array. if greater than partition, do nothing. Else swap increment i, so now it points to an elemnt that is greater than partition, and then swaps them. now after the loop has ended, my partition is still at the end, so it has not been swapped. so lets swap (arr[i+1] with arr[high]) & i+1 is the new partition index.
 
-<!--ekta boro elm er por choto elm thakle swapping ta bojha jai.-->
+ekta boro elm er por choto elm thakle swapping ta bojha jai.
+#######################################################################################
+-->
 
 
 **Quick Look:**
   1. **Time Complexity:** Best/Average: $O(n \log n)$ Worst: $O(n^2)$ (when pivot is always min/max)
   2. **Space Complexity:** $O(\log n)$ (recursion stack)
-  3. **Stability:** _Unstable_, consider an array of same elements, i pick the first one as partition. now it will be joined at the end. cuz, [<=partition]+[partition]+[>partition]
+  3. **Stability:** _Unstable_, consider an array of same elements, i pick the first one as partition. now it will be joined at the end. because, [<=partition]+[partition]+[>partition]
 
 ---
 
@@ -30,6 +34,8 @@ okay, so in partition function the variable i is for tracking the partition inde
   3. Recursively sort left and right subarrays.
 
 ---
+
+**code:**
 
 ```python
 def quick_sort(arr: list[int]) -> list[int]:
@@ -43,44 +49,28 @@ def quick_sort(arr: list[int]) -> list[int]:
     return quick_sort(smaller_eq) + [pivot] + quick_sort(larger)
 ```
 
-```c
-// function to swap two integers
-void swap(int *a, int *b) {
-  int temp = *a;
-  *a = *b;
-  *b = temp;
-}
+**inplace version:**
 
-// partition function using lomuto partition scheme
-int partition(int arr[], int low, int high) {
-  int pivot = arr[high];     // pivot element
-  int i = low - 1;           // index of smaller element
+```python
+def partition(arr, low, high):
+    pi = high
+    i = low - 1 # i points to the last index that was smaller than the pivot element
 
-  // traverse through the array and compare with pivot
-  for (int j = low; j < high; j++) {
-    // if current element is <= pivot, swap
-    if (arr[j] <= pivot) {
-      i++;
-      swap(&arr[i], &arr[j]);
-    }
-  }
+    for j in range(low, high):
+        if arr[j] <= arr[pi]:
+            i += 1
+            arr[i], arr[j] = arr[j], arr[i] # swap arr[i], arr[j]
+            # why needed? dry run: [pi-x, pi-y, pi+a, pi-z, pi]
 
-  // place pivot at correct position
-  swap(&arr[i + 1], &arr[high]);
-  return (i + 1);
-}
+    arr[i+1], arr[pi] = arr[pi], arr[i+1] # swapping i+1 with pivot,
+    # i <- last index that was smaller than pivot, so i+1 -> pivot's suitable position
+    return i+1 # return pivots index
 
-// quicksort recursive function
-void quickSort(int arr[], int low, int high) {
-  if (low < high) {
-    // partition the array
-    int pi = partition(arr, low, high);
-
-    // recursively sort elements before and after partition
-    quickSort(arr, low, pi - 1);
-    quickSort(arr, pi + 1, high);
-  }
-}
+def quicksort(arr, low, high):
+    if low < high:
+        pi = partition(arr, low, high)
+        quicksort(arr, low, pi-1)
+        quicksort(arr, pi+1, high)
 ```
 
 ---
@@ -90,11 +80,6 @@ void quickSort(int arr[], int low, int high) {
 ```sh
 QUICK SORT VISUALIZATION
 =========================
-
-Algorithm: 1) Choose a pivot element
-           2) Partition array: elements < pivot on left, > pivot on right
-           3) Recursively sort left and right partitions
-           Uses divide-and-conquer approach
 
 Initial array:
 +---+---+---+---+---+
@@ -280,10 +265,6 @@ Time Complexity:
 - Worst: O(n²) when pivot is always smallest/largest
 
 Space Complexity: O(log n) for recursion stack
-
-Key insight: Partition around pivot so it's in final position,
-            then recursively sort left and right partitions.
-            Unlike merge sort, the work is in partitioning, not combining!
 ```
 
 **Complexity Analysis:**

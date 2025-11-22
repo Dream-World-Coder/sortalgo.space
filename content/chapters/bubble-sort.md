@@ -60,8 +60,6 @@ def bubble_sort_optimized(arr: list[int]):
 **Visualisation, Sorting [7, 3, 5, 2, 9]:**
 
 ```sh
-Algorithm: Compare adjacent pairs and swap if left > right.
-           Largest elements "bubble up" to the end in each pass.
 
 Initial array:
 +---+---+---+---+---+
