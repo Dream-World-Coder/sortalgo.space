@@ -16,7 +16,7 @@ In sorting, the expectation from the output is quite simple: all progressive ele
 
 Can't think of a way?
 
-Hmm, then try to guess what will be the first element of the sorted result.
+Then try to guess what will be the first element of the sorted result.
 
 Since all other elements are greater than or equal to it, it will definitely be the smallest element.
 

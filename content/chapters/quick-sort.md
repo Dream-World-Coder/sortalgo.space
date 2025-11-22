@@ -24,7 +24,7 @@ ekta boro elm er por choto elm thakle swapping ta bojha jai.
 **Quick Look:**
   1. **Time Complexity:** Best/Average: $O(n \log n)$ Worst: $O(n^2)$ (when pivot is always min/max)
   2. **Space Complexity:** $O(\log n)$ (recursion stack)
-  3. **Stability:** _Unstable_, consider an array of same elements, i pick the first one as partition. now it will be joined at the end. because, [<=partition]+[partition]+[>partition]
+  3. **Stability:** _Unstable_, consider an array of same elements, i pick the first one as partition. now it will be joined at the end. because, [<=partition]+[partition]+[>partition]. [read more](stable-and-unstable-sort)
 
 ---
 

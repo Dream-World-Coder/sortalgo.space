@@ -15,7 +15,7 @@
 ### Quick Look:
   1. **Time Complexity:** $O(n \log n)$ for all cases
   2. **Space Complexity:** $O(n)$
-  3. **Stability:** _Stable_
+  3. **Stability:** _Stable_, [read more](stable-and-unstable-sort)
 
 > Used in **external sorting** for large datasets that don’t fit in RAM.
 

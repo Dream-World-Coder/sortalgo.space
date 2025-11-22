@@ -48,7 +48,10 @@ export const chapters: Section[] = [
   },
   {
     title: "advanced sorts",
-    chapters: [{ slug: "heap-sort", title: "heap sort" }],
+    chapters: [
+      { slug: "heap-sort", title: "heap sort" },
+      { slug: "heap-vs-sorted-array", title: "heap vs sorted array" },
+    ],
   },
   {
     title: "linear sorts",

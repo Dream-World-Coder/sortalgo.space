@@ -17,7 +17,7 @@ It’s efficient for small datasets, nearly sorted data, and is stable and in-pl
   1. **Time Complexity:** Best $O(n)$, Worst $O(n^2)$
   2. **Space Complexity:** $O(1)$ — _in-place_
   3. **No of comparisions:** Best $n-1$, Average $\frac{n(n-1)}{4}$, Worst $\frac{n(n-1)}{2}$
-  4. **Stability:** _Stable_ (shifts adjacent elements like bubble sort)
+  4. **Stability:** _Stable_ (shifts adjacent elements like bubble sort) [read more](stable-and-unstable-sort)
 
 ---
 

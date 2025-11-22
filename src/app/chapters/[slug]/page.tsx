@@ -160,6 +160,7 @@ export async function generateStaticParams() {
     { slug: "quick-sort" },
 
     { slug: "heap-sort" },
+    { slug: "heap-vs-sorted-array" },
 
     { slug: "counting-sort" },
     { slug: "radix-sort" },

@@ -18,7 +18,7 @@ Its time complexity is $O(n^2)$ in all cases, and it uses only $O(1)$ auxiliary 
   1. **Time Complexity:** $O(n^2)$ for all cases (standard)
   2. **Space Complexity:** $O(1)$ — _In-place_
   3. **No of swaps:** $O(n^2)$ for all cases
-  4. **Stability:** _Stable_ Bubble sort swaps only adjacent elements. When two elements are equal, no swap occurs → relative order preserved.
+  4. **Stability:** _Stable_ Bubble sort swaps only adjacent elements. When two elements are equal, no swap occurs → relative order preserved. [read more](stable-and-unstable-sort)
 
 ---
 

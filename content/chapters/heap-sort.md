@@ -15,7 +15,7 @@
 **Quick Look:**
   1. **Time Complexity:** $O(n \log n)$ for all cases
   2. **Space Complexity:** $O(1)$ — _in-place_
-  3. **Stability:** _Unstable_ (heap operations can reorder equal elements)
+  3. **Stability:** _Unstable_ (heap operations can reorder equal elements). [read more](stable-and-unstable-sort)
 
 ---
 

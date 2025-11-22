@@ -18,7 +18,7 @@ Its time complexity is $O(n^2)$ in all cases, and it uses only $O(1)$ auxiliary 
   1. **Time Complexity:** $O(n^2)$ for all cases
   2. **Space Complexity:** $O(1)$ — _Sorts in-place_
   3. **No of comparisons:** $O(n^2)$ for all cases
-  4. **Stability:** _Unstable_ in standard implementation. Selection sort selects the minimum element from the unsorted portion and swaps it with the first unsorted element. This swap can move an element past other equal elements, breaking relative order.
+  4. **Stability:** _Unstable_ in standard implementation. Selection sort selects the minimum element from the unsorted portion and swaps it with the first unsorted element. This swap can move an element past other equal elements, breaking relative order. [read more](stable-and-unstable-sort)
 
 ---
 
