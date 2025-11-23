@@ -78,3 +78,19 @@ export function getNextArticle(
 
   return allChapters[index + 1]; // return { slug, title }
 }
+
+export function getPrevArticle(
+  currentSlug: string,
+): { slug: string; title?: string } | null {
+  // all chapters -> a list of objects with slug + title
+  const allChapters = chapters.flatMap((section) =>
+    section.chapters.map((ch) => ({ slug: ch.slug, title: ch.title })),
+  );
+
+  const index = allChapters.findIndex((ch) => ch.slug === currentSlug);
+
+  if (index === -1) return null; // slug not found
+  if (index === 0) return { slug: "first" }; // first article
+
+  return allChapters[index - 1]; // return { slug, title }
+}

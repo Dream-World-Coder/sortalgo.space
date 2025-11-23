@@ -1,5 +1,5 @@
 import { getChapterContent } from "@/lib/content";
-import { getNextArticle } from "@/lib/chapters";
+import { getPrevArticle, getNextArticle } from "@/lib/chapters";
 import { MarkdownRenderer } from "@/components/MDRenderer";
 import metaDataParser, { ParsedMetaData } from "@/components/MetaParser";
 import { getSchemaData } from "@/components/seo";
@@ -7,7 +7,7 @@ import { Metadata } from "next";
 import { cache } from "react";
 import Script from "next/script";
 import Link from "next/link";
-import { ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 // import { CornerPlusIcons } from "@/components/Decorum";
 
 const getPageMetadata = cache(async (slug: string): Promise<ParsedMetaData> => {
@@ -83,6 +83,8 @@ export default async function ChapterPage({
 
   const nextSlug: { slug: string; title?: string } | null =
     getNextArticle(slug);
+  const prevSlug: { slug: string; title?: string } | null =
+    getPrevArticle(slug);
 
   return (
     <>
@@ -116,25 +118,36 @@ export default async function ChapterPage({
         {/* --- */}
         <Animation />
 
-        {/* next article */}
-        {nextSlug && nextSlug.slug === "last" ? (
+        {/* prev / next article */}
+        {prevSlug && nextSlug && (
+          <div className="w-full capitalize flex flex-col md:flex-row justify-between items-start md:items-center mt-6 gap-3">
+            {prevSlug.slug !== "first" && (
+              <Link
+                href={`/chapters/${prevSlug?.slug}`}
+                className="flex items-center border border-black dark:border-white bg-sky-50 dark:bg-transparent py-1 px-4"
+              >
+                <ChevronLeft size={20} />
+                Previous: {prevSlug?.title}
+              </Link>
+            )}
+
+            {nextSlug.slug !== "last" && (
+              <Link
+                href={`/chapters/${nextSlug?.slug}`}
+                className="flex items-center border border-black dark:border-white bg-sky-50 dark:bg-transparent py-1 px-4"
+              >
+                Next: {nextSlug?.title}
+                <ChevronRight size={20} />
+              </Link>
+            )}
+          </div>
+        )}
+
+        {prevSlug && nextSlug && nextSlug.slug === "last" && (
           <div className="w-full mt-6 italic">
             I hope these articles helped you even by a little, <br />
-            <span className="underline">Thank you,</span> for continuing till
-            the end!
-          </div>
-        ) : (
-          <div className="w-full capitalize flex justify-end items-center group mt-6">
-            <Link
-              href={`/chapters/${nextSlug?.slug}`}
-              className="flex items-center border border-black dark:border-white py-1 px-4"
-            >
-              Next: {nextSlug?.title}
-              <ChevronRight
-                size={20}
-                className="transform translate-x-0 group-hover:translate-x-1"
-              />
-            </Link>
+            <span className="underline decoration-dotted">Thank you!</span> for
+            continuing till the end!
           </div>
         )}
       </article>
