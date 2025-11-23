@@ -49,37 +49,56 @@ export default function ChaptersLayout({
           <DarkModeBtn />
         </nav>
 
-        {/* sidebar */}
+        {/* fixed sidebar for desktops */}
         <aside
-          className="bg-[#f8f8f8] dark:bg-neutral-900 text-black dark:text-[#f8f8f8] border-neutral-300/80 dark:border-neutral-700/80
-          p-6 py-10 hidden lg:block h-full w-64 border border-dashed relative"
+          className="hidden lg:block fixed
+            left-1/2 -translate-x-1/2
+            w-full max-w-[1368px]
+            px-2
+            z-30 pointer-events-none"
         >
-          <ul className="list mt-0 font-serif">
-            {chapters.map((section) => (
-              <li key={section.title} className="pb-4">
-                <h3 className="font-bold capitalize">{section.title}</h3>
-                <ol className="pl-4">
-                  {section.chapters.map((chapter) => (
-                    <li key={chapter.slug}>
-                      <Link
-                        href={`/chapters/${chapter.slug}`}
-                        className="capitalize hover:underline"
-                      >
-                        {chapter.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ol>
-              </li>
-            ))}
-          </ul>
+          <div
+            className="pointer-events-auto
+              w-[270px]
+              h-[calc(100vh-3rem)]
+              bg-[#f8f8f8] dark:bg-neutral-900
+              text-black dark:text-[#f8f8f8]
+              border border-dashed border-neutral-300/80 dark:border-neutral-700/80
+              p-6 py-10 relative"
+          >
+            <ul className="list mt-0 font-serif">
+              {chapters.map((section) => (
+                <li key={section.title} className="pb-4">
+                  <h3 className="font-bold capitalize">{section.title}</h3>
+                  <ol className="pl-4">
+                    {section.chapters.map((chapter) => (
+                      <li key={chapter.slug}>
+                        <Link
+                          href={`/chapters/${chapter.slug}`}
+                          className="capitalize hover:underline"
+                        >
+                          {chapter.title}
+                        </Link>
+                      </li>
+                    ))}
+                  </ol>
+                </li>
+              ))}
+            </ul>
 
-          <CornerPlusIcons />
+            <CornerPlusIcons />
+          </div>
         </aside>
 
+        {/* main content */}
         <main
-          className="bg-[#f8f8f8] dark:bg-neutral-900 text-black dark:text-[#f8f8f8] border-neutral-300/80 dark:border-neutral-700/80
-          px-0 md:px-6 py-2 md:py-10 flex-1 h-full border border-dashed relative"
+          className="bg-[#f8f8f8] dark:bg-neutral-900
+            text-black dark:text-[#f8f8f8]
+            border border-dashed border-neutral-300/80 dark:border-neutral-700/80
+            flex-1
+            px-0 md:px-6 py-2 md:py-10
+            relative
+            lg:ml-72"
         >
           {children}
 
