@@ -1,6 +1,6 @@
 import { chapters } from "@/lib/chapters";
 import Link from "next/link";
-import { ChevronLeft } from "lucide-react";
+import { ChevronLeft, List } from "lucide-react";
 import { CornerPlusIcons } from "@/components/Decorum";
 import Image from "next/image";
 import DarkModeBtn from "@/components/dark-mode-btn";
@@ -16,17 +16,37 @@ export default function ChaptersLayout({
         className="max-w-dvw md:max-w-[1368px] mx-auto overflow-x-hidden size-full
         flex justify-center items-start gap-4 relative pb-10 px-4 md:px-2 py-4 md:py-6"
       >
-        {/* /chapters/[slug] -> /chapters */}
-        {/* no need of back btn in mobile as back key does the same work */}
-        <nav className="absolute top-4 md:top-6 right-0 md:right-2 px-2 py-2 z-40 flex items-center justify-center gap-2">
+        {/* nav for desktops */}
+        <nav
+          className="hidden sm:flex fixed -translate-x-1/2 top-6 left-1/2
+          w-full max-w-[1368px] px-6 py-2 z-40 items-center justify-end gap-2"
+        >
           <DarkModeBtn />
+
+          {/* back btn for desktops */}
           <Link
             href="/chapters"
-            className="hidden sm:flex items-center justify-center gap-0 px-2 py-0.5 rounded-2xl opacity-75 hover:opacity-100
+            className="flex items-center justify-center gap-0 px-2 py-0.5 rounded-2xl opacity-75 hover:opacity-100
             bg-stone-200 dark:bg-stone-800 border-r border-b border-stone-300 dark:border-stone-700 text-black dark:text-white"
           >
             <ChevronLeft size={20} /> Back
           </Link>
+        </nav>
+
+        {/* nav for mobiles */}
+        <nav
+          className="flex sm:hidden fixed top-8 left-6 px-2 py-1.5 z-40 items-center justify-center gap-3
+          bg-stone-200 dark:bg-stone-800 border-r border-b border-stone-300 dark:border-stone-700 rounded-xl"
+        >
+          {/* back btn for mobiles */}
+          <Link
+            href="/chapters"
+            className="opacity-75 hover:opacity-100 text-black dark:text-white"
+          >
+            <List size={20} />
+          </Link>
+
+          <DarkModeBtn />
         </nav>
 
         {/* sidebar */}
