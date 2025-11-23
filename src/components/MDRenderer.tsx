@@ -286,7 +286,8 @@ export function MarkdownRenderer({ content }: { content: string }) {
             a: ({ href, children }) => (
               <a
                 href={href}
-                className="underline font-medium sentient-regular transition-colors duration-200 text-stone-600 hover:text-stone-700 dark:text-stone-400 dark:hover:text-stone-300"
+                className="underline font-medium sentient-regular transition-colors duration-200
+                text-sky-700 hover:text-sky-600 dark:text-blue-400 dark:hover:text-blue-300"
                 target={href?.startsWith("http") ? "_blank" : "_self"}
                 rel={href?.startsWith("http") ? "noopener noreferrer" : ""}
               >
@@ -312,31 +313,31 @@ export function MarkdownRenderer({ content }: { content: string }) {
 
             table: ({ children }) => (
               <div className="overflow-x-auto max-w-[80vw] md:max-w-none">
-                <table className="border border-gray-400 dark:border-neutral-600 bg-white dark:bg-neutral-800 w-full text-neutral-900 dark:text-neutral-100">
+                <table className="w-full text-neutral-900 dark:text-neutral-100">
                   {children}
                 </table>
               </div>
             ),
             thead: ({ children }) => (
-              <thead className="bg-gray-200 dark:bg-neutral-700">
-                {children}
-              </thead>
+              <thead className="bg-sky-50 dark:bg-[#171717]">{children}</thead>
             ),
             tbody: ({ children }) => (
-              <tbody className="dark:bg-neutral-800">{children}</tbody>
+              <tbody className="bg-white dark:bg-neutral-950">{children}</tbody>
             ),
-            tr: ({ children }) => (
-              <tr className="border border-gray-300 dark:border-neutral-600">
-                {children}
-              </tr>
-            ),
+            tr: ({ children }) => <tr className="">{children}</tr>,
             th: ({ children }) => (
-              <th className="border sentient-bold border-gray-300 dark:border-neutral-600 px-4 py-2 bg-gray-100 dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100">
+              <th
+                className="px-4 py-2 sentient-bold text-center
+                  border border-neutral-200 dark:border-[#303030]"
+              >
                 {children}
               </th>
             ),
             td: ({ children }) => (
-              <td className="border border-gray-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 px-4 py-2 dark:bg-neutral-800 sentient-regular">
+              <td
+                className="px-4 py-2 sentient-regular text-center
+                border border-neutral-200 dark:border-[#303030]"
+              >
                 {children}
               </td>
             ),
