@@ -3,7 +3,7 @@ import fs from "fs";
 import path from "path";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://www.sortalgo.space";
+  const baseUrl = "https://sortalgo.space";
 
   const staticRoutes: MetadataRoute.Sitemap = [
     {
