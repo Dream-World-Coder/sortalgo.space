@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     description:
       "Interactive Blog Posts On Sorting Algorithms & Computer Science by Subhajit Gorai",
     url: "https://sortalgo.space",
-    images: ["https://www.sortalgo.space/preview.png"],
+    images: ["https://sortalgo.space/preview.png"],
   },
 };
 
@@ -56,14 +56,14 @@ export default async function Chapters() {
       "visualisation",
       "sorting techniques",
     ],
-    image: "https://www.sortalgo.space/preview.png",
+    image: "https://sortalgo.space/preview.png",
     publisher: {
       "@type": "Organization",
       name: "SortAlgo",
       url: "https://sortalgo.space",
       logo: {
         "@type": "ImageObject",
-        url: "https://www.sortalgo.space/preview.png",
+        url: "https://sortalgo.space/preview.png",
       },
     },
     author: {

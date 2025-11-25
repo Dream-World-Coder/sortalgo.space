@@ -8,7 +8,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://www.sortalgo.space/sitemap.xml",
-    host: "https://www.sortalgo.space",
+    sitemap: "https://sortalgo.space/sitemap.xml",
+    host: "https://sortalgo.space",
   };
 }
