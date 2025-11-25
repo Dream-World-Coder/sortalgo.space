@@ -8,10 +8,14 @@ export function middleware(req: NextRequest) {
   const parts = host.split(".");
   const subdomain = parts.length > 2 ? parts[0] : null;
 
+  /*
   if (subdomain === "animations") {
     url.pathname = `/animations${url.pathname}`;
     return NextResponse.rewrite(url);
   }
+  // return NextResponse.next();
+  */
 
-  return NextResponse.next();
+  url.pathname = `/${subdomain}${url.pathname}`;
+  return NextResponse.rewrite(url);
 }
