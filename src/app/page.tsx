@@ -26,7 +26,7 @@ export default async function Home() {
         </p>
 
         <div className="diagram front-cover my-10">
-          <pre className="whitespace-pre wrap-break-word font-mono leading-tight bg-sky-50">
+          <pre className="whitespace-pre wrap-break-word font-mono leading-tight bg-sky-50 dark:bg-transparent">
             {`*               •
               •
             •   •
