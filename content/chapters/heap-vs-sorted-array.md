@@ -2,7 +2,7 @@
   title: "Heap vs Sorted Array: Why Building a Heap is Linear"
   authors: ["Subhajit Gorai"]
   dateCreated: "22/11/2025"
-  dateEdited: "22/11/2025"
+  dateEdited: "30/11/2025"
   description: "Understanding why heap construction takes O(n) time while sorting requires O(n log n)"
   tags: ["sorting", "heap", "data-structures"]
   slug: "heap-vs-sorted"
@@ -259,5 +259,3 @@ This isn't just a clever algorithm optimization—it's a deep mathematical truth
 **References:**
 [leimao.github.io/blog/Heap-Building-Asymptotic-Algorithm](https://leimao.github.io/blog/Heap-Building-Asymptotic-Algorithm/)
 [geeksforgeeks.org/dsa/number-ways-form-heap-n-distinct-integers](https://www.geeksforgeeks.org/dsa/number-ways-form-heap-n-distinct-integers/)
-
-> This article was written with help from Claude, in parts of Latex & some paragraphs
