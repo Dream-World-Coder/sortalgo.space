@@ -12,13 +12,13 @@
 
 One of the most surprising results in algorithm analysis is that building a heap takes only $O(n)$ time, while sorting an array requires $\Omega(n \log n)$ comparisons. This isn't just a lucky optimization—it's a fundamental consequence of how many valid arrangements exist for each structure. Let's explore why.
 
-## The Sorted Array: Only One Way
+### The Sorted Array: Only One Way
 
 For $n$ distinct elements, there is exactly **one valid sorted arrangement**. Out of all $n!$ possible permutations, only one satisfies the sorted order. The probability of randomly arriving at this configuration is:
 
 $$P(\text{sorted}) = \frac{1}{n!}$$
 
-### Why $\Omega(n \log n)$ Comparisons Are Required
+#### Why $\Omega(n \log n)$ Comparisons Are Required
 
 To find this single correct arrangement through comparisons, we can model the sorting process as a **decision tree**. Each comparison eliminates some permutations from consideration:
 
@@ -65,7 +65,7 @@ The decision tree has depth $\Omega(\log_2(24)) \approx \Omega(\log_2(4!)) \appr
 
 **Key insight**: Because there's only **one target** out of $n!$ possibilities, we need $\Omega(n \log n)$ comparisons to identify it.
 
-## The Heap: Many Valid Arrangements
+### The Heap: Many Valid Arrangements
 
 A max-heap satisfies the heap property: every parent is greater than or equal to its children. However, unlike a sorted array, **many different arrangements** can satisfy this property for the same set of elements.
 
@@ -107,11 +107,11 @@ Multiple swaps:
 
 All of these are valid max-heaps! This flexibility is the key: **there are many more valid heap configurations than there is a single sorted arrangement**.
 
-## Counting the Number of Heaps: $H(n)$
+### Counting the Number of Heaps: $H(n)$
 
 Let's derive exactly how many distinct max-heap structures can be formed from $n$ distinct elements.
 
-### Recurrence Relation
+#### Recurrence Relation
 
 For a heap of size $n$ with root element (the maximum), we partition the remaining $n-1$ elements into:
 - A left subtree of size $L$
@@ -127,7 +127,7 @@ $$H(n) = \binom{n-1}{L} \cdot H(L) \cdot H(R)$$
 
 where $L$ and $R$ are determined by the complete binary tree structure (left subtree as full as possible), and $H(1) = 1$.
 
-### Exact Formula
+#### Exact Formula
 
 There's an elegant closed form for $H(n)$:
 
@@ -137,7 +137,7 @@ where the product is over all nodes $v$ in the heap tree, and $s(v)$ is the size
 
 **Why does this work?** The numerator $n!$ represents all possible arrangements of $n$ elements. The denominator counts the "over-counting" due to heap symmetries. Each subtree of size $s(v)$ has internal orderings that don't matter for the heap property, so we divide by $s(v)$ to remove those redundant arrangements.
 
-### Small Checks
+#### Small Checks
 
 Let's verify this formula for small values:
 
@@ -185,7 +185,7 @@ $H(4) = \frac{4!}{4 \cdot 2 \cdot 1 \cdot 1} = \frac{24}{8} = 3$ ✓
 
 Using recurrence: $H(4) = \binom{3}{2} \cdot H(2) \cdot H(1) = 3 \cdot 1 \cdot 1 = 3$ ✓
 
-### Asymptotic Analysis: $H(n) \approx \frac{n!}{2^{\Theta(n)}}$
+#### Asymptotic Analysis: $H(n) \approx \frac{n!}{2^{\Theta(n)}}$
 
 To understand how $H(n)$ grows, let's analyze the denominator $\prod_{v} s(v)$.
 
@@ -224,7 +224,7 @@ $$H(n) \approx \frac{\sqrt{2\pi n} (n/e)^n}{2^{\Theta(n)}}$$
 
 More specifically: $\log_2 H(n) = \Theta(n \log n - n) \approx n(\log n - 1)$ compared to $\log_2(n!) \approx n \log n$.
 
-## Why Heap Construction is Linear
+### Why Heap Construction is Linear
 
 Now the punchline: because there are **exponentially many valid heaps** (roughly $n!/2^{\Theta(n)}$), the probability of building a valid heap is much higher:
 
@@ -246,7 +246,7 @@ $$\text{Total work} = O(n)$$
 
 The combinatorial argument reinforces this: we don't need to make $\Omega(n \log n)$ comparisons because we're not searching for **one specific arrangement** among $n!$ possibilities. We're searching for **any of the $H(n) \approx n!/2^{\Theta(n)}$ valid heaps**, which requires only $\Theta(n)$ comparisons.
 
-## Conclusion
+### Conclusion
 
 The fundamental difference:
 - **Sorted array**: 1 valid arrangement out of $n!$ → requires $\Omega(n \log n)$ comparisons

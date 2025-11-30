@@ -2,7 +2,7 @@
   title: "Minima Extraction as Sorting Technique"
   authors: ["Subhajit Gorai"]
   dateCreated: "20/10/2025"
-  dateEdited: "22/11/2025"
+  dateEdited: "30/11/2025"
   description: "How to sort, selection sort, heap sort, algorithm, code, visualisation"
   tags: ["selection sort", "heap sort", "sorting", "visualisation", "code"]
   slug: "minima-extraction"
@@ -10,7 +10,7 @@
 
 # Sorting with Minima Extraction
 
-## How can we sort an array?
+### How can we sort an array?
 
 In sorting, the expectation from the output is quite simple: all progressive elements will be <= (or >= for descending) than the current element. Let's stick to ascending order for now. So how to sort? Can you think of an algorithm?
 
@@ -112,7 +112,7 @@ def selection_sort(array):
 
 And that's what **Selection Sort** is! It's literally just the minima extraction idea, implemented efficiently in place.
 
-## Analyzing Time Complexity
+### Analyzing Time Complexity
 
 Let's think about the time complexity:
 
@@ -127,7 +127,7 @@ Now here's an interesting observation: the number of elements is fixed at N. But
 
 **What if we could reduce the time to find the minimum?** Then we could sort in less time!
 
-## Trying to Reduce Time to Find Min
+### Trying to Reduce Time to Find Min
 
 So how do we find minimums faster than O(N)?
 
