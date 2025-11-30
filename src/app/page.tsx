@@ -29,11 +29,11 @@ export default async function Home() {
           <pre className="whitespace-pre wrap-break-word font-mono leading-tight">
             {`
 +---+---+---+
-| x |   | 0 |
+|   |   | X |
 +---+---+---+
-|   | x |   |
+|   | x | X |
 +---+---+---+
-| 0 |   | x |
+| X | X | x |
 +---+---+---+
             `}
           </pre>
