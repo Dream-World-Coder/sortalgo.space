@@ -109,7 +109,7 @@ export default async function Chapters() {
               className="flex items-center justify-center gap-0 px-2 py-0.5 rounded-2xl
             bg-stone-200 dark:bg-stone-800 border-r border-b border-stone-300 dark:border-stone-700"
             >
-              <ChevronLeft size={20} /> Back
+              <ChevronLeft size={20} /> Home
             </Link>
           </nav>
 

@@ -26,16 +26,16 @@ export default function ChaptersLayout({
           {/* back btn for desktops */}
           <Link
             href="/chapters"
-            className="flex items-center justify-center gap-0 px-2 py-0.5 rounded-2xl opacity-75 hover:opacity-100
+            className="flex items-center justify-center gap-2 px-2 py-0.5 rounded-2xl opacity-75 hover:opacity-100
             bg-stone-200 dark:bg-stone-800 border-r border-b border-stone-300 dark:border-stone-700 text-black dark:text-white"
           >
-            <ChevronLeft size={20} /> Back
+            <List size={16} /> Index
           </Link>
         </nav>
 
         {/* nav for mobiles */}
         <nav
-          className="flex sm:hidden fixed top-8 left-6 px-2 py-1.5 z-40 items-center justify-center gap-3
+          className="flex sm:hidden fixed top-8 left-8 px-2 py-1.5 z-40 items-center justify-center gap-3
           bg-stone-200 dark:bg-stone-800 border-r border-b border-stone-300 dark:border-stone-700 rounded-xl"
         >
           {/* back btn for mobiles */}
@@ -109,12 +109,12 @@ export default function ChaptersLayout({
       <footer className="w-full py-16 text-black dark:text-white">
         {/* feedback form, email */}
         <div className="mx-auto max-w-3xl p-6 flex flex-col md:flex-row items-start md:items-center justify-center">
-          <div className="image size-[125px] relative block overflow-hidden">
+          <div className="image size-[132px] relative block overflow-hidden">
             <Image
               src="/cross.png"
               alt="footer image"
-              width={125}
-              height={125}
+              width={132}
+              height={132}
               className="object-cover"
             />
           </div>
@@ -130,6 +130,15 @@ export default function ChaptersLayout({
             </a>
             . I&apos;d love to hear your thoughts on the article, and improve it
             based on your suggestions.
+            <br />
+            Github:{" "}
+            <a
+              href="https://github.com/Dream-World-Coder/sortalgo.space"
+              target="_blank"
+              className="underline cursor-pointer"
+            >
+              github.com/Dream-World-Coder/sortalgo.space
+            </a>
             <br />
             <br />© 2025 sortalgo.space. All rights reserved.
           </div>
