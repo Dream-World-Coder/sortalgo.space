@@ -28,13 +28,15 @@ export default async function Home() {
         <div className="diagram front-cover my-10">
           <pre className="whitespace-pre wrap-break-word font-mono leading-tight">
             {`
-+---+---+---+
-|   |   | x |
-+---+---+---+
-|   | x | x |
-+---+---+---+
-| x | x | x |
-+---+---+---+
+•---•---•---•---•
+|   |   |   | x |
+•---+---+---+---•
+|   |   | x | x |
+•---+---+---+---•
+|   | x | x | x |
+•---+---+---+---•
+| x | x | x | x |
+•---•---•---•---•
             `}
           </pre>
         </div>
