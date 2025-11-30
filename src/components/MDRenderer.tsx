@@ -250,12 +250,12 @@ export function MarkdownRenderer({ content }: { content: string }) {
               </h3>
             ),
             h4: ({ children }) => (
-              <h4 className="sentient-regular font-semibold mt-6 mb-3 leading-snug text-lg md:text-xl flex items-center gap-2 justify-start group text-neutral-900 dark:text-neutral-100">
+              <h4 className="sentient-bold font-semibold mt-6 mb-3 leading-snug text-lg md:text-xl flex items-center gap-2 justify-start group text-neutral-900 dark:text-neutral-100">
                 {children}
               </h4>
             ),
             h5: ({ children }) => (
-              <h5 className="sentient-regular font-semibold mt-5 mb-3 leading-snug text-base md:text-lg text-neutral-900 dark:text-neutral-100">
+              <h5 className="sentient-bold font-semibold mt-5 mb-3 leading-snug text-base md:text-lg text-neutral-900 dark:text-neutral-100">
                 {children}
               </h5>
             ),
